@@ -1,1 +1,1 @@
-# banger_gallery
+# Banger Gallery
