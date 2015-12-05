@@ -37,6 +37,13 @@
   - Related covers (by different artists)
   - More from the artist (if applicable)
 
+## Color Rounding
+- Users can only select from 15 colors, so the color analysis needs to be able to bucket an RGB value into the 15 values.
+- Approach:
+  - Round each R, G, B value to either 0, 125, or 255
+
+![Color Wheel](http://i.imgur.com/CWFDM5k.jpg)
+
 ## Research
 - Wireframes
 - Isotope Research
