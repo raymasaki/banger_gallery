@@ -23,7 +23,7 @@ module.exports = function(app) {
     var mixtape = coversController.getMixtape(req.params.id);
     var imageUrl = mixtape.thumb_image;
 
-    request('http://mkweb.bcgsc.ca/color-summarizer/?url=' + imageUrl + '&precision=vlow&text=1&json=1', function (error, response, body) {
+    request('http://mkweb.bcgsc.ca/color-summarizer/?url=' + imageUrl + '&precision=vlow&text=1&json=1&num_clusters=8', function (error, response, body) {
       res.send(body);
 
       // Goes to the analysis of selected ID and passes in analysis JSON

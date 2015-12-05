@@ -13,7 +13,7 @@ function runAnalysis(data) {
 
   function run() {
     // tells you which
-    console.log(i + 'out of ' + len + ' total');
+    console.log(i + ' out of ' + len + ' total');
 
     // connects to the analysis route to actually process the json
     $.get('/analysis/' + i, 'json');
@@ -22,7 +22,7 @@ function runAnalysis(data) {
 
     // runs every 4 seconds so that it has time to load
     if (i < len) {
-      setTimeout(run, 4000);
+      setTimeout(run, 5000);
     } else {
       //tells you when it's done
       console.log('Complete');
