@@ -3,7 +3,7 @@ var express = require('express'),
   request = require('request'),
   bodyParser = require('body-parser'),
   editJson = require('../models/top20_data_edited.js'),
-  newJson = require('../models/top20_data_new.json'),
+  newJson = require('../public/top20_data_new.json'),
   fs = require('fs');
 
 module.exports = function(app) {
@@ -13,7 +13,10 @@ module.exports = function(app) {
   });
 
   app.get('/new', function(req, res) {
-    res.send(newJson);
+    // res.send(newJson);
+    request('http://localhost:3000/top20_data_new.json', function (error, response, body) {
+      res.send(body);
+    });
   });
 
   app.get('/analysis/:id', function(req, res) {
@@ -23,11 +26,13 @@ module.exports = function(app) {
     request('http://mkweb.bcgsc.ca/color-summarizer/?url=' + imageUrl + '&precision=vlow&text=1&json=1', function (error, response, body) {
       res.send(body);
 
-      editJson[req.params.id].analysis = JSON.parse(body);
+      // console.log(newJson.mixtape_data);
 
-      var data = {"data" : editJson};
+      newJson.mixtape_data[req.params.id].analysis = JSON.parse(body);
+      //
+      // var data = {"mixtape_data" : newJson};
 
-      fs.writeFile('public/top20_data_new.json', JSON.stringify(data), function (err) {
+      fs.writeFile('public/top20_data_new.json', JSON.stringify(newJson), function (err) {
         console.log(err);
       });
     });
