@@ -1,0 +1,56 @@
+body {
+  font-family: helvetica, sans-serif;
+}
+
+.grid {
+  margin: 0;
+  padding: 0;
+}
+
+.grid-item {
+  width: 120px;
+  font-size: 12px;
+  padding: 8px;
+}
+
+.grid-item > img {
+  width: 100%;
+}
+
+.grid-item {
+  display: inline-block;
+}
+
+@media (min-width: 1200px) { /* everything above 1200 */
+
+}
+@media (max-width: 767px) { /* everything below 767 */
+
+}
+@media (min-width: 768px) and (max-width: 991px) { /* between 768 and 991 */
+
+}
+@media (min-width: 992px) and (max-width: 1199px) { /* between 992 and 1199 */
+
+}
+
+/**** Transitions ****/
+
+.masonry .masonry-enter { /* limit animated properties for entering elements */
+    -webkit-transition-property: -webkit-transform, opacity;
+    transition-property: transform, opacity;
+}
+
+.masonry-enter,
+.masonry-leave.masonry-leave-active {
+    opacity: 0;
+    -webkit-transform: scale(0.1);
+    transform: scale(0.1);
+}
+
+.masonry-leave,
+.masonry-enter.masonry-enter-active {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}

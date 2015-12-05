@@ -58,6 +58,7 @@
 - MEAN Stack
 - [Import.io](https://import.io/): Data scraper
 - [CSV2JSON](http://www.csvjson.com/csv2json): Converts CSV files to JSON
+- [fs.writeFile](https://nodejs.org/api/fs.html#fs_fs_writefile_file_data_options_callback): Write a file from a route
 - [Angular Autocomplete](https://material.angularjs.org/latest/demo/autocomplete)
 - [Isotope](http://isotope.metafizzy.co/): Sorting/Filtering plugin
 - [Color Summarizer API](http://mkweb.bcgsc.ca/color-summarizer/): Color analysis
