@@ -1,8 +1,11 @@
 $(document).ready(function () {
-  $.get('/top20_data_new.json', runAnalysis, 'json');
+  $('#run').click(function (e) {
+    $.get('/top20_data_new.json', runAnalysis, 'json');
+  });
 });
 
 function runAnalysis(data) {
+
   // gets the length of the dataset
   var len = data.mixtape_data.length;
 
