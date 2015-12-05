@@ -26,12 +26,10 @@ module.exports = function(app) {
     request('http://mkweb.bcgsc.ca/color-summarizer/?url=' + imageUrl + '&precision=vlow&text=1&json=1', function (error, response, body) {
       res.send(body);
 
-      // console.log(newJson.mixtape_data);
-
+      // Goes to the analysis of selected ID and passes in analysis JSON
       newJson.mixtape_data[req.params.id].analysis = JSON.parse(body);
-      //
-      // var data = {"mixtape_data" : newJson};
 
+      // overwrites json file with new data
       fs.writeFile('public/top20_data_new.json', JSON.stringify(newJson), function (err) {
         console.log(err);
       });
