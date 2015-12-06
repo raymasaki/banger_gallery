@@ -14,9 +14,9 @@ module.exports = function(app) {
   app.get('/rounding/:id', function(req, res) {
 
     // Most prominent color
-    var R = newJson.mixtape_data[req.params.id].analysis.clusters[0].rgb[0];
-    var G = newJson.mixtape_data[req.params.id].analysis.clusters[0].rgb[1];
-    var B = newJson.mixtape_data[req.params.id].analysis.clusters[0].rgb[2];
+    var R = newJson.mixtape_data[req.params.id].analysis.clusters[1].rgb[0];
+    var G = newJson.mixtape_data[req.params.id].analysis.clusters[1].rgb[1];
+    var B = newJson.mixtape_data[req.params.id].analysis.clusters[1].rgb[2];
 
     // Average color
     // var R = newJson.mixtape_data[req.params.id].analysis.stats.rgb.r.avg[0];
