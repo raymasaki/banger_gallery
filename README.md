@@ -7,7 +7,7 @@
   - Analyze color data and push JSON as object into mixtape data JSON
 
 ## Filtering and Sorting
-- User can filter by **color & location or artist**
+- User can filter by **color & location OR artist**
   - If user selects a color, the covers are clustered by state (alphabetical)
   - If user selects a location, the covers are clustered by color (spectrum)
   - If user selects an artist, the covers are clustered by color (spectrum)
@@ -40,7 +40,10 @@
 ## Color Rounding
 - Users can only select from 15 colors, so the color analysis needs to be able to bucket an RGB value into the 15 values.
 - Approach:
-  - Round each R, G, B value to either 0, 125, or 255
+  - Round each R, G, B value to either 0, 125, or 255 (12 total combinations)
+  - If the values are 0, 0, 0 then the color is black
+  - If the values are 125, 125, 125 then the color is gray
+  - If the values are 255, 255, 255 then the color is white
 
 ![Color Wheel](http://i.imgur.com/CWFDM5k.jpg)
 
@@ -55,11 +58,13 @@
 - Tooltip
 - Preloading and AJAX lazy loading
   - Before the image loads and fades in, each cover is represented by it's predominant hex value
+  - Images don't load in until user scrolls to that section
 
 ### Initial Tests
-- ~~Make a MEAN stack app that displays the top 20~~
-- ~~Make an app that runs the top 20 image URLs through the API and saves the analysis to the object~~
+- Make a MEAN stack app that displays the top 20
+- Make an app that runs the top 20 image URLs through the API and saves the analysis to the object
 - Use JSON data that has the analysis and run isotope on it
+- Create color rounding algorithm that updates the JSON data
 
 ### Technologies
 - MEAN Stack
