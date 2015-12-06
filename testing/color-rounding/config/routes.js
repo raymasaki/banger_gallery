@@ -82,7 +82,7 @@ module.exports = function(app) {
           break;
 
         case "125, 0, 0":
-          rounding = 'maroon';
+          rounding = 'maroon red';
           roundingArr.push(rounding);
           break;
 
@@ -92,7 +92,7 @@ module.exports = function(app) {
           break;
 
         case "0, 0, 125":
-          rounding = 'navy';
+          rounding = 'navy blue';
           roundingArr.push(rounding);
           break;
 
@@ -112,7 +112,7 @@ module.exports = function(app) {
           break;
 
         case "125, 125, 0":
-          rounding = 'olive';
+          rounding = 'olive green';
           roundingArr.push(rounding);
           break;
 
@@ -137,22 +137,22 @@ module.exports = function(app) {
           break;
 
         case "0, 255, 255":
-          rounding = 'cyan';
+          rounding = 'cyan blue';
           roundingArr.push(rounding);
           break;
 
         case "125, 125, 255":
-          rounding = 'lightblue';
+          rounding = 'light blue';
           roundingArr.push(rounding);
           break;
 
         case "125, 255, 125":
-          rounding = 'lime';
+          rounding = 'lime green';
           roundingArr.push(rounding);
           break;
 
         case "255, 125, 125":
-          rounding = 'salmon';
+          rounding = 'salmon red';
           roundingArr.push(rounding);
           break;
 
@@ -167,7 +167,7 @@ module.exports = function(app) {
           break;
 
         case "125, 255, 255":
-          rounding = 'aquamarine';
+          rounding = 'aquamarine blue';
           roundingArr.push(rounding);
           break;
 
@@ -187,7 +187,7 @@ module.exports = function(app) {
           break;
 
         case "125, 255, 0":
-          rounding = 'lime';
+          rounding = 'lime green';
           roundingArr.push(rounding);
           break;
 

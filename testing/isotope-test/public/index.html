@@ -22,9 +22,9 @@
     <ul class="grid" masonry="true">
 
       <li class="grid-item" ng-repeat="mixtape in mixtapes.all | filter:search | orderBy: order" style="background: {{mixtape.analysis.clusters[1].hex[0]}};">
-        <p>{{mixtape.title}}</p>
-        <p>Artist: {{mixtape.artist}}</p>
-        <p>Color: {{mixtape.color}}</p>
+        <!-- <p>{{mixtape.title}}</p> -->
+        <!-- <p>Artist: {{mixtape.artist}}</p> -->
+        <!-- <p>Color: {{mixtape.color.join(' ')}} </p> -->
         <img ng-src="{{mixtape.thumb_image}}" alt="{{mixtape.title}}">
       </li>
 

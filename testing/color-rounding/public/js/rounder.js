@@ -22,7 +22,7 @@ function runRounder(data) {
 
     // runs every 4 seconds so that it has time to load
     if (i < len) {
-      setTimeout(run, 2000);
+      setTimeout(run, 1000);
     } else {
       //tells you when it's done
       console.log('Complete');
