@@ -180,9 +180,13 @@ module.exports = function(app) {
 
     res.send('RGB: ' + RGB + ' ' + rounding);
 
-    // res.send('Hello' + R + G + B);
+    var mixtape = coversController.getMixtape(req.params.id);
 
-    // newJson.mixtape_data[req.params.id].color =
+    newJson.mixtape_data[req.params.id].color = rounding;
+
+    fs.writeFile('public/top20_data_new.json', JSON.stringify(newJson), function(err) {
+      console.log(err);
+    });
 
   });
 
