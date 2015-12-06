@@ -13,6 +13,7 @@
 
     <input type="text" ng-model="search.artist" placeholder="Search for an artist..." />
     <input type="text" ng-model="search.state" placeholder="Search for a state..." />
+    <input type="text" ng-model="search.color" placeholder="Search for a color..." />
     <!-- <a href="#" ng-click="order = 'all.title'">Order by title</a>
     <a href="#" ng-click="order = 'all.artist'">Order by artist</a> -->
 
@@ -20,7 +21,8 @@
 
       <li class="grid-item" ng-repeat="mixtape in mixtapes.all | filter:search" style="background: {{mixtape.analysis.clusters[1].hex[0]}};">
         <p>{{mixtape.title}}</p>
-        <p>{{mixtape.artist}}</p>
+        <p>Artist: {{mixtape.artist}}</p>
+        <p>Color: {{mixtape.color}}</p>
         <img ng-src="{{mixtape.thumb_image}}" alt="{{mixtape.title}}">
       </li>
 
