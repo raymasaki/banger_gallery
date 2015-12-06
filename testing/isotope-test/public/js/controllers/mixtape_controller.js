@@ -1,6 +1,6 @@
-app.controller('MixtapeCtrl', ['$log', '$http', MixtapeCtrl]);
+app.controller('MixtapeCtrl', ['$log', '$http', '$filter', MixtapeCtrl]);
 
-function MixtapeCtrl($log, $http) {
+function MixtapeCtrl($log, $http, $filter) {
 
   var self = this;
   self.title = "Banger Gallery";

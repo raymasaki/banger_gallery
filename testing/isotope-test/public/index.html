@@ -14,12 +14,14 @@
     <input type="text" ng-model="search.artist" placeholder="Search for an artist..." />
     <input type="text" ng-model="search.state" placeholder="Search for a state..." />
     <input type="text" ng-model="search.color" placeholder="Search for a color..." />
-    <!-- <a href="#" ng-click="order = 'all.title'">Order by title</a>
-    <a href="#" ng-click="order = 'all.artist'">Order by artist</a> -->
+
+    <a href="#" ng-click="order = 'title'">Order by title</a>
+    <a href="#" ng-click="order = 'artist'">Order by artist</a>
+    <a href="#" ng-click="order = 'color'">Order by color</a>
 
     <ul class="grid" masonry="true">
 
-      <li class="grid-item" ng-repeat="mixtape in mixtapes.all | filter:search" style="background: {{mixtape.analysis.clusters[1].hex[0]}};">
+      <li class="grid-item" ng-repeat="mixtape in mixtapes.all | filter:search | orderBy: order" style="background: {{mixtape.analysis.clusters[1].hex[0]}};">
         <p>{{mixtape.title}}</p>
         <p>Artist: {{mixtape.artist}}</p>
         <p>Color: {{mixtape.color}}</p>
@@ -33,27 +35,9 @@
   <script src="bower_components/jquery/jquery.js"></script>
   <script src="bower_components/masonry/masonry.pkgd.js"></script>
   <script src="bower_components/angular/angular.js"></script>
+
   <script src="js/app.js"></script>
   <script src="js/controllers/mixtape_controller.js"></script>
   <script src="js/controllers/masonry_controller.js"></script>
 </body>
 </html>
-
-<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/masonry/2.1.08/jquery.masonry.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
-
-<div ng-controller="MainCtrl">
-    <input type="text" ng-model="nameFilter" />
-    <a href="#" ng-click="order = 'id'">Order by id</a>
-    <a href="#" ng-click="order = 'name'">Order by name</a>
-    <a href="#" ng-click="order = 'age'">Order by age</a>
-
-    <ul class="grid" masonry="true">
-        <li ng-repeat="item in items | filter: { name: nameFilter } | orderBy: order">
-            <span>{{item.name}}</span>
-            <br /> <span>Age: {{item.age}}</span>
-            <br /> <span>Company: {{item.company}}</span>
-        </li>
-    </ul>
-</div> -->

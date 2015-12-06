@@ -1,5 +1,7 @@
 app.directive("masonry", function() {
 
+  // took from this: http://jsfiddle.net/g/3SH7a/ don't fully understand it yet
+
   var NGREPEAT_SOURCE_RE = '<!-- ngRepeat: ((.*) in ((.*?)( track by (.*))?)) -->';
 
   return {
@@ -44,7 +46,8 @@ app.directive("masonry", function() {
 
                 // Wait inside directives to render
                 setTimeout(function() {
-                  element.masonry("reload");
+                  element.masonry('reloadItems');
+                  element.masonry();
                 });
               });
             });
@@ -54,14 +57,3 @@ app.directive("masonry", function() {
     }
   };
 });
-
-// .controller('MainCtrl', function($scope, $http) {
-//   $scope.items = [{
-//     "id": 0,
-//     "picture": "http://placehold.it/32x32",
-//     "age": 31,
-//     "name": "Mathews Goff"
-//   }];
-// });
-
-// angular.bootstrap(document.body, ['app']);
