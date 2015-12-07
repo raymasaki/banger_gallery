@@ -67,7 +67,6 @@ function MixtapeCtrl($log, $http, $filter) {
       self.current.colors[i].hex = clusters[i].hex[0];
       self.current.colors[i].percentage = clusters[i].f;
     }
-    // debugger;
 
   }
 }
