@@ -23,7 +23,7 @@ module.exports = function(app) {
 
     var roundingArr = [];
 
-    for (var i = 0; i < 3; i++) {
+    for (var i = 0; i < 8; i++) {
 
       // Most prominent color
       var R = newJson.mixtape_data[req.params.id].analysis.clusters[i].rgb[0];
