@@ -67,144 +67,143 @@ module.exports = function(app) {
 
       switch (RGB) {
         case "0, 0, 0":
-          rounding = 'black';
-          roundingArr.push(rounding);
-          break;
-
-        case "125, 125, 125":
-          rounding = 'gray';
-          roundingArr.push(rounding);
-          break;
-
-        case "255, 255, 255":
-          rounding = 'white';
-          roundingArr.push(rounding);
-          break;
-
-        case "125, 0, 0":
-          rounding = 'maroon red';
-          roundingArr.push(rounding);
-          break;
-
-        case "0, 125, 0":
-          rounding = 'green';
+          rounding = "black";
           roundingArr.push(rounding);
           break;
 
         case "0, 0, 125":
-          rounding = 'navy blue';
-          roundingArr.push(rounding);
-          break;
-
-        case "255, 0, 0":
-          rounding = 'red';
-          roundingArr.push(rounding);
-          break;
-
-        case "0, 255, 0":
-          rounding = 'green';
+          rounding = "navy blue";
           roundingArr.push(rounding);
           break;
 
         case "0, 0, 255":
-          rounding = 'blue';
+          rounding = "blue";
           roundingArr.push(rounding);
           break;
 
-        case "125, 125, 0":
-          rounding = 'olive green';
-          roundingArr.push(rounding);
-          break;
-
-        case "125, 0, 125":
-          rounding = 'purple';
+        case "0, 125, 0":
+          rounding = "dark green";
           roundingArr.push(rounding);
           break;
 
         case "0, 125, 125":
-          rounding = 'teal';
-          roundingArr.push(rounding);
-          break;
-
-        case "255, 255, 0":
-          rounding = 'yellow';
-          roundingArr.push(rounding);
-          break;
-
-        case "255, 0, 255":
-          rounding = 'magenta';
-          roundingArr.push(rounding);
-          break;
-
-        case "0, 255, 255":
-          rounding = 'cyan blue';
-          roundingArr.push(rounding);
-          break;
-
-        case "125, 125, 255":
-          rounding = 'light blue';
-          roundingArr.push(rounding);
-          break;
-
-        case "125, 255, 125":
-          rounding = 'lime green';
-          roundingArr.push(rounding);
-          break;
-
-        case "255, 125, 125":
-          rounding = 'salmon red';
-          roundingArr.push(rounding);
-          break;
-
-        case "255, 255, 125":
-          rounding = 'beige';
-          roundingArr.push(rounding);
-          break;
-
-        case "255, 125, 255":
-          rounding = 'pink';
-          roundingArr.push(rounding);
-          break;
-
-        case "125, 255, 255":
-          rounding = 'aquamarine blue';
-          roundingArr.push(rounding);
-          break;
-
-        case "255, 0, 125":
-          rounding = 'magenta';
-          roundingArr.push(rounding);
-          break;
-
-        case "255, 125, 0":
-          rounding = 'orange';
-          roundingArr.push(rounding);
-          break;
-
-        case "0, 255, 125":
-          rounding = 'green';
-          roundingArr.push(rounding);
-          break;
-
-        case "125, 255, 0":
-          rounding = 'lime green';
-          roundingArr.push(rounding);
-          break;
-
-        case "125, 0, 255":
-          rounding = 'purple';
+          rounding = "teal blue";
           roundingArr.push(rounding);
           break;
 
         case "0, 125, 255":
-          rounding = 'blue';
+          rounding = "azure blue";
+          roundingArr.push(rounding);
+          break;
+
+        case "0, 255, 0":
+          rounding = "green";
+          roundingArr.push(rounding);
+          break;
+
+        case "0, 255, 125":
+          rounding = "spring green";
+          roundingArr.push(rounding);
+          break;
+
+        case "0, 255, 255":
+          rounding = "cyan blue";
+          roundingArr.push(rounding);
+          break;
+
+        case "125, 0, 0":
+          rounding = "maroon red";
+          roundingArr.push(rounding);
+          break;
+
+        case "125, 0, 125":
+          rounding = "eggplant purple";
+          roundingArr.push(rounding);
+          break;
+
+        case "125, 0, 255":
+          rounding = "violet purple";
+          roundingArr.push(rounding);
+          break;
+
+        case "125, 125, 0":
+          rounding = "olive green";
+          roundingArr.push(rounding);
+          break;
+
+        case "125, 125, 125":
+          rounding = "gray";
+          roundingArr.push(rounding);
+          break;
+
+        case "125, 125, 255":
+          rounding = "cornflower blue";
+          roundingArr.push(rounding);
+          break;
+
+        case "125, 255, 0":
+          rounding = "lime green";
+          roundingArr.push(rounding);
+          break;
+
+        case "125, 255, 125":
+          rounding = "neon green";
+          roundingArr.push(rounding);
+          break;
+
+        case "125, 255, 255":
+          rounding = "aquamarine blue";
+          roundingArr.push(rounding);
+          break;
+
+        case "255, 0, 0":
+          rounding = "red";
+          roundingArr.push(rounding);
+          break;
+
+        case "255, 0, 125":
+          rounding = "rose red";
+          roundingArr.push(rounding);
+          break;
+
+        case "255, 0, 255":
+          rounding = "magenta";
+          roundingArr.push(rounding);
+          break;
+
+        case "255, 125, 0":
+          rounding = "orange";
+          roundingArr.push(rounding);
+          break;
+
+        case "255, 125, 125":
+          rounding = "salmon red";
+          roundingArr.push(rounding);
+          break;
+
+        case "255, 125, 255":
+          rounding = "pink";
+          roundingArr.push(rounding);
+          break;
+
+        case "255, 255, 0":
+          rounding = "yellow";
+          roundingArr.push(rounding);
+          break;
+
+        case "255, 255, 125":
+          rounding = "light yellow";
+          roundingArr.push(rounding);
+          break;
+
+        case "255, 255, 255":
+          rounding = "white";
           roundingArr.push(rounding);
           break;
 
         default:
           console.log('error');
           break;
-
       }
 
     }

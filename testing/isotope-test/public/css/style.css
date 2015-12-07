@@ -8,10 +8,10 @@ body {
 }
 
 .grid-item {
-  width: 120px;
+  width: 80px;
   font-size: 12px;
-  padding: 8px;
-  margin: 8px;
+  padding: 6px;
+  margin: 6px;
 }
 
 .grid-item > img {

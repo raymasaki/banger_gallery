@@ -64,7 +64,8 @@
 - Make a MEAN stack app that displays the top 20
 - Make an app that runs the top 20 image URLs through the API and saves the analysis to the object
 - Use JSON data that has the analysis and run isotope on it
-- Create color rounding algorithm that updates the JSON data
+- Create color rounding function that updates the JSON data
+- Create data visualization for color spread
 
 ### Technologies
 - MEAN Stack
