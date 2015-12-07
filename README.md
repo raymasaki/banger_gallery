@@ -47,6 +47,21 @@
 
 ![Color Wheel](http://i.imgur.com/CWFDM5k.jpg)
 
+## Wireframes
+
+#### Home
+![Banger Gallery 1](http://i.imgur.com/9F7B3X7.png)
+#### Filter
+![Banger Gallery 2](http://i.imgur.com/7lq7S6c.png)
+#### Filtered View
+![Banger Gallery 3](http://i.imgur.com/fBycEVc.png)
+#### Search Artist
+![Banger Gallery 4](http://i.imgur.com/IfbxbRc.png)
+#### Filtered Artist
+![Banger Gallery 5](http://i.imgur.com/tipeQkl.png)
+#### Detail Modal
+![Banger Gallery 6](http://i.imgur.com/LeizYwk.png)
+
 ## Research
 - Wireframes
 - Isotope Research
