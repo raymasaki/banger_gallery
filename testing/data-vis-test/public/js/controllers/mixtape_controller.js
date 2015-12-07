@@ -31,7 +31,17 @@ function MixtapeCtrl($log, $http, $filter) {
     day : null,
     month : null,
     year : null,
-    thumb_image : null
+    thumb_image : null,
+    colors : [
+      {hex: '', percentage: null},
+      {hex: '', percentage: null},
+      {hex: '', percentage: null},
+      {hex: '', percentage: null},
+      {hex: '', percentage: null},
+      {hex: '', percentage: null},
+      {hex: '', percentage: null},
+      {hex: '', percentage: null}
+    ]
   };
 
   function showModal(index) {
@@ -45,6 +55,19 @@ function MixtapeCtrl($log, $http, $filter) {
     self.current.year = self.all[index].year;
     self.current.thumb_image = self.all[index].thumb_image;
 
+    var clusters = self.all[index].analysis.clusters;
+
+    console.log(clusters[0].hex[0]);
+    console.log(self.current.colors[0].hex);
+
+
     self.showDetail = true;
+
+    for (var i = 0; i < 9; i++) {
+      self.current.colors[i].hex = clusters[i].hex[0];
+      self.current.colors[i].percentage = clusters[i].f;
+    }
+    // debugger;
+
   }
 }

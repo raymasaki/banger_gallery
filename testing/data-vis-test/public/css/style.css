@@ -48,6 +48,22 @@ body {
   right: 0;
 }
 
+.modal > .details > img {
+  float: left;
+  padding-right: 16px;
+}
+
+.modal > .details > .color-bar {
+  float: left;
+  width: 100%;
+  margin-top: 32px;
+}
+
+.modal > .details > .color-bar > .color-spread {
+  float: left;
+  height: 32px;
+}
+
 @media (min-width: 1200px) { /* everything above 1200 */
 
 }

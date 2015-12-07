@@ -7,6 +7,11 @@
     <p>Downloads: {{mixtapes.current.downloads}}</p>
     <p>Location: {{mixtapes.current.city}}, {{mixtapes.current.state}}</p>
     <p>Release Date: {{mixtapes.current.month}}-{{mixtapes.current.day}}-{{mixtapes.current.year}}</p>
+
+    <div class="color-bar">
+      <div class="color-spread" ng-repeat="color in mixtapes.current.colors" style="background: {{color.hex}}; width: {{color.percentage * 100}}%;"></div>
+    </div>
+
   </div>
 </div>
 
