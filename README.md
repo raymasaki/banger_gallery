@@ -66,6 +66,7 @@
 - Use JSON data that has the analysis and run isotope on it
 - Create color rounding function that updates the JSON data
 - Create data visualization for color spread
+- Create UI animation test
 
 ### Technologies
 - MEAN Stack

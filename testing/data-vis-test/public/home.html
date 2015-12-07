@@ -1,0 +1,29 @@
+<div class="modal" ng-show="mixtapes.showDetail">
+  <div class="details">
+    <a ng-click="mixtapes.showDetail = false" class="close">CLOSE</a>
+    <img ng-src="{{mixtapes.current.thumb_image}}" alt="{{mixtapes.current.title}}">
+    <h2>{{mixtapes.current.artist}}</h2>
+    <h2>{{mixtapes.current.title}}</h2>
+    <p>Downloads: {{mixtapes.current.downloads}}</p>
+    <p>Location: {{mixtapes.current.city}}, {{mixtapes.current.state}}</p>
+    <p>Release Date: {{mixtapes.current.month}}-{{mixtapes.current.day}}-{{mixtapes.current.year}}</p>
+  </div>
+</div>
+
+<h1>{{mixtapes.title}}</h1>
+
+<input type="text" ng-model="search.artist" placeholder="Search for an artist..." />
+<input type="text" ng-model="search.state" placeholder="Search for a state..." />
+<input type="text" ng-model="search.color" placeholder="Search for a color..." />
+
+<a href="#" ng-click="order = 'title'">Order by title</a>
+<a href="#" ng-click="order = 'artist'">Order by artist</a>
+<a href="#" ng-click="order = 'color'">Order by color</a>
+
+<ul class="grid" masonry="true">
+
+  <li class="grid-item" ng-repeat="mixtape in mixtapes.all | filter:search | orderBy: order" style="background: {{mixtape.analysis.clusters[1].hex[0]}};">
+    <img ng-src="{{mixtape.thumb_image}}" alt="{{mixtape.title}}" ng-click="mixtapes.showModal($index)">
+  </li>
+
+</ul>
