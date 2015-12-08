@@ -9,7 +9,7 @@ function runAnalysis(data) {
   // gets the length of the dataset
   var len = data.mixtape_data.length;
 
-  var i = 0;
+  var i = 19;
 
   function run() {
     // tells you which
@@ -22,7 +22,7 @@ function runAnalysis(data) {
 
     // runs every 4 seconds so that it has time to load
     if (i < len) {
-      setTimeout(run, 5000);
+      setTimeout(run, 6000);
     } else {
       //tells you when it's done
       console.log('Complete');
