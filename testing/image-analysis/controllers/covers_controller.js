@@ -1,4 +1,4 @@
-var Covers = require('../models/top20_data.js');
+var Covers = require('../models/mixtape_data_model.js');
 var CoversNew = require('../models/top20_data_edited.js');
 var request = require('request');
 
