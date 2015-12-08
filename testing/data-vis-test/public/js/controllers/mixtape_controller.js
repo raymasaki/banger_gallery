@@ -15,7 +15,18 @@ function MixtapeCtrl($log, $http, $filter) {
     $http
       .get('http://localhost:3000/mixtapes')
       .then(function(res) {
-        self.all = res.data;
+
+        var coverData = res.data;
+
+        for (var i = 0; i < coverData.length; i++) {
+          coverData[i].thumb_image = 'https://s3-us-west-2.amazonaws.com/banger-gallery/covers' + jpgName(coverData[i].thumb_image);
+        }
+
+        function jpgName(str) {
+          return str.substring(34);
+        }
+
+        self.all = coverData;
       })
       .catch(function(res) {
         $log.error('failure', res);
