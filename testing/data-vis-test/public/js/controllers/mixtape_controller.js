@@ -33,18 +33,20 @@ function MixtapeCtrl($log, $http, $filter) {
     year : null,
     thumb_image : null,
     colors : [
-      {hex: '', percentage: null},
-      {hex: '', percentage: null},
-      {hex: '', percentage: null},
-      {hex: '', percentage: null},
-      {hex: '', percentage: null},
-      {hex: '', percentage: null},
-      {hex: '', percentage: null},
-      {hex: '', percentage: null}
+      {hexVal: '', percentage: null},
+      {hexVal: '', percentage: null},
+      {hexVal: '', percentage: null},
+      {hexVal: '', percentage: null},
+      {hexVal: '', percentage: null},
+      {hexVal: '', percentage: null},
+      {hexVal: '', percentage: null},
+      {hexVal: '', percentage: null}
     ]
   };
 
   function showModal(index) {
+    self.showDetail = true;
+
     self.current.artist = self.all[index].artist;
     self.current.title = self.all[index].title;
     self.current.downloads = self.all[index].downloads;
@@ -55,17 +57,11 @@ function MixtapeCtrl($log, $http, $filter) {
     self.current.year = self.all[index].year;
     self.current.thumb_image = self.all[index].thumb_image;
 
-    var clusters = self.all[index].analysis.clusters;
-
-    console.log(clusters[0].hex[0]);
-    console.log(self.current.colors[0].hex);
-
-
-    self.showDetail = true;
+    var colorArr = self.all[index].analysis.clusters;
 
     for (var i = 0; i < 9; i++) {
-      self.current.colors[i].hex = clusters[i].hex[0];
-      self.current.colors[i].percentage = clusters[i].f;
+      self.current.colors[i].hexVal = colorArr[i].hex[0];
+      self.current.colors[i].percentage = colorArr[i].f;
     }
 
   }
