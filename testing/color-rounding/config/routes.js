@@ -215,6 +215,8 @@ module.exports = function(app) {
 
     newJson.mixtape_data[req.params.id].color = roundingArr;
 
+    newJson.mixtape_data[req.params.id]._id = req.params.id;
+
     fs.writeFile('public/top20_data_new.json', JSON.stringify(newJson), function(err) {
       console.log(err);
     });
