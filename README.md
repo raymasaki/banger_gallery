@@ -28,14 +28,22 @@
     - Color spread
       - Set most dominant color for preloading color
     - Complexity score
-      - Evenness of the color spread
-      - Comparison of the RGB values to see how disparate they are
   - Mixtape release date
   - Artist name
   - Artist location
   - Number of downloads
   - Related covers (by different artists)
   - More from the artist (if applicable)
+
+## Complexity Score
+- Complexity score is a score out of 100 depending on several factors:
+  - Comparison of the RGB values to see how varied they are
+    - RGB values are each 0-255, so you can compare each color value set to its adjacent value set. The larger the difference the more colorful the cover is.
+    - If the RGB value sets are similar to one another, they are similar in color and can get grouped together as a single percentage value.
+  - Evenness of the color spread
+    - Once the colors have been grouped by percentage (i.e. blue, navy, teal get grouped as one), you can compare the overall minimalism by checking the spread
+      - If the overall number of colors is low and one of the values is particularly high, the cover is minimal
+      - If the overall number of colors is large and all values have even low percentages, the cover is complex
 
 ## Color Rounding
 - Users can only select from 15 colors, so the color analysis needs to be able to bucket an RGB value into the 15 values.
