@@ -1,1 +1,16 @@
-<h1>{{mixtapes.title}}</h1>
+<h1>Test</h1>
+
+<div class="details">
+  <a ng-click="mixtapes.showDetail = false" class="close">CLOSE</a>
+  <img ng-src="{{mixtapes.current.thumb_image}}" alt="{{mixtapes.current.title}}">
+  <h2>{{mixtapes.current.artist}}</h2>
+  <h2>{{mixtapes.current.title}}</h2>
+  <p>Downloads: {{mixtapes.current.downloads | number : fractionSize}}</p>
+  <p>Location: {{mixtapes.current.city}}, {{mixtapes.current.state}}</p>
+  <p>Release Date: {{mixtapes.current.month}}-{{mixtapes.current.day}}-{{mixtapes.current.year}}</p>
+
+  <div class="color-bar">
+    <div class="color-spread" ng-repeat="color in mixtapes.current.colors" style="background: {{color.hexVal}}; width: {{color.percentage * 100}}%;"></div>
+  </div>
+
+</div>

@@ -1,15 +1,15 @@
 var app = angular.module('mixtapeApp', ['ui.router'])
-    .config(MainRouter);
+  .config(MainRouter);
 
-function MainRouter ($stateProvider, $urlRouterProvider) {
+function MainRouter($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: '/',
-      views: {
-        'covers': {
-          templateUrl: 'home.html'
-        }
-      }
+      templateUrl: 'home.html'
+    })
+    .state('detail', {
+      url: '/detail/:id',
+      templateUrl: 'detail.html'
     });
 
   $urlRouterProvider.otherwise('/');
