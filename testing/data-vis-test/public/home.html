@@ -9,7 +9,7 @@
     <p>Release Date: {{mixtapes.current.month}}-{{mixtapes.current.day}}-{{mixtapes.current.year}}</p>
 
     <div class="complexity">
-      <div class="complexity-item" ng-repeat="complex in mixtapes.current.complexity | orderBy: complex.percent">{{complex.color}} – {{complex.percent * 100}}</div>
+      <div class="complexity-item" ng-repeat="complex in mixtapes.current.complexity | orderBy: complex.percent">{{complex.hex}} – {{complex.percent * 100}}</div>
     </div>
 
     <div class="color-bar">
