@@ -5989,7 +5989,7 @@ module.exports = [
   },
   {
     "link": "http://www.datpiff.com/Chief-Keef-Finally-Rollin-2-mixtape.746266.html",
-    "thumb_image": "http://hw-img.datpiffhttp://hw-img.datpiff.com/m31fa02c/Chief_Keef_Finally_Rollin_2-front.jpg.com/m0952b95/Iggy_Azalea_Glory_ep-front.jpg",
+    "thumb_image": "http://hw-img.datpiff.com/m31fa02c/Chief_Keef_Finally_Rollin_2-front.jpg",
     "title": "Finally Rollin 2",
     "artist": "Chief Keef",
     "downloads": 120130,

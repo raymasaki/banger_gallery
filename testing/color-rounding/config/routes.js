@@ -23,7 +23,7 @@ module.exports = function(app) {
 
     var roundingArr = [];
 
-    for (var i = 0; i < 8; i++) {
+    for (var i = 0; i < 3; i++) {
 
       // Most prominent color
       var R = newJson.mixtape_data[req.params.id].analysis.clusters[i].rgb[0];
@@ -72,7 +72,7 @@ module.exports = function(app) {
           break;
 
         case "0, 0, 125":
-          rounding = "navy blue";
+          rounding = "blue navy";
           roundingArr.push(rounding);
           break;
 
@@ -82,17 +82,17 @@ module.exports = function(app) {
           break;
 
         case "0, 125, 0":
-          rounding = "dark green";
+          rounding = "green forest";
           roundingArr.push(rounding);
           break;
 
         case "0, 125, 125":
-          rounding = "teal blue";
+          rounding = "blue green teal";
           roundingArr.push(rounding);
           break;
 
         case "0, 125, 255":
-          rounding = "azure blue";
+          rounding = "blue azure";
           roundingArr.push(rounding);
           break;
 
@@ -102,32 +102,32 @@ module.exports = function(app) {
           break;
 
         case "0, 255, 125":
-          rounding = "spring green";
+          rounding = "green spring";
           roundingArr.push(rounding);
           break;
 
         case "0, 255, 255":
-          rounding = "cyan blue";
+          rounding = "blue cyan";
           roundingArr.push(rounding);
           break;
 
         case "125, 0, 0":
-          rounding = "maroon red";
+          rounding = "red maroon";
           roundingArr.push(rounding);
           break;
 
         case "125, 0, 125":
-          rounding = "eggplant purple";
+          rounding = "purple eggplant";
           roundingArr.push(rounding);
           break;
 
         case "125, 0, 255":
-          rounding = "violet purple";
+          rounding = "purple violet";
           roundingArr.push(rounding);
           break;
 
         case "125, 125, 0":
-          rounding = "olive green";
+          rounding = "green olive";
           roundingArr.push(rounding);
           break;
 
@@ -137,22 +137,22 @@ module.exports = function(app) {
           break;
 
         case "125, 125, 255":
-          rounding = "cornflower blue";
+          rounding = "blue cornflower";
           roundingArr.push(rounding);
           break;
 
         case "125, 255, 0":
-          rounding = "lime green";
+          rounding = "green lime";
           roundingArr.push(rounding);
           break;
 
         case "125, 255, 125":
-          rounding = "neon green";
+          rounding = "green neon";
           roundingArr.push(rounding);
           break;
 
         case "125, 255, 255":
-          rounding = "aquamarine blue";
+          rounding = "blue green aquamarine";
           roundingArr.push(rounding);
           break;
 
@@ -162,7 +162,7 @@ module.exports = function(app) {
           break;
 
         case "255, 0, 125":
-          rounding = "rose red";
+          rounding = "red rose";
           roundingArr.push(rounding);
           break;
 
@@ -172,17 +172,17 @@ module.exports = function(app) {
           break;
 
         case "255, 125, 0":
-          rounding = "orange";
+          rounding = "red orange";
           roundingArr.push(rounding);
           break;
 
         case "255, 125, 125":
-          rounding = "salmon red";
+          rounding = "red salmon";
           roundingArr.push(rounding);
           break;
 
         case "255, 125, 255":
-          rounding = "pink";
+          rounding = "red pink";
           roundingArr.push(rounding);
           break;
 
@@ -192,7 +192,7 @@ module.exports = function(app) {
           break;
 
         case "255, 255, 125":
-          rounding = "light yellow";
+          rounding = "yellow beige";
           roundingArr.push(rounding);
           break;
 
