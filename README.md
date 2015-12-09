@@ -81,6 +81,7 @@
 - Use JSON data that has the analysis and run isotope on it
 - Create color rounding function that updates the JSON data
 - Create data visualization for color spread
+- Create complexity score and cover comparison for detail modal
 - Create UI animation test
 
 ### Technologies
