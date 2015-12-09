@@ -52,7 +52,8 @@ function MixtapeCtrl($log, $http, $filter) {
       {hexVal: '', percentage: null},
       {hexVal: '', percentage: null},
       {hexVal: '', percentage: null}
-    ]
+    ],
+    complexity : [],
   };
 
   function showModal(index) {
@@ -67,12 +68,19 @@ function MixtapeCtrl($log, $http, $filter) {
     self.current.month = self.all[index].month;
     self.current.year = self.all[index].year;
     self.current.thumb_image = self.all[index].thumb_image;
+    self.current.complexity = self.all[index].colorAll;
 
     var colorArr = self.all[index].analysis.clusters;
 
     for (var i = 0; i < 9; i++) {
       self.current.colors[i].hexVal = colorArr[i].hex[0];
       self.current.colors[i].percentage = colorArr[i].f;
+    }
+
+    var complexArr = self.all[index].colorAll;
+
+    for (var j = 0; j < 9; j++) {
+      self.current.complexity.push(complexArr[j]);
     }
 
   }
