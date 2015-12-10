@@ -28,6 +28,15 @@
 <input type="text" ng-model="search.state" placeholder="Search for a state..." />
 <input type="text" ng-model="search.color" placeholder="Search for a color..." />
 
+<a ng-click="colorFilter = {color: ''}">Clear</a>
+<a ng-click="colorFilter = {color: 'blue'}">Blue</a>
+<a ng-click="colorFilter = {color: 'red'}">Red</a>
+
+<a ng-click="stateFilter = {state: ''}">Clear</a>
+<a ng-click="stateFilter = {state: 'california'}">California</a>
+<a ng-click="stateFilter = {state: 'new york'}">New York</a>
+<br>
+
 <a href="#" ng-click="order = 'title'">Order by title</a>
 <a href="#" ng-click="order = 'artist'">Order by artist</a>
 <a href="#" ng-click="order = '-color'">Order by color</a>
@@ -37,7 +46,7 @@
 
 <ul class="grid" masonry="true">
 
-  <li class="grid-item" ng-repeat="mixtape in mixtapes.all | filter:search | orderBy: order" style="background: {{mixtape.analysis.clusters[1].hex[0]}};">
+  <li class="grid-item" ng-repeat="mixtape in mixtapes.all | filter: colorFilter | filter: stateFilter | orderBy: order" style="background: {{mixtape.analysis.clusters[1].hex[0]}};">
     <!-- <div class="tooltip">
       <p>{{mixtape.artist}}</p>
       <p>{{mixtape.title}}</p>
