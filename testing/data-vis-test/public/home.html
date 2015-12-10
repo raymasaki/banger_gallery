@@ -7,10 +7,16 @@
     <p>Downloads: {{mixtapes.current.downloads | number : fractionSize}}</p>
     <p>Location: {{mixtapes.current.city}}, {{mixtapes.current.state}}</p>
     <p>Release Date: {{mixtapes.current.month}}-{{mixtapes.current.day}}-{{mixtapes.current.year}}</p>
+    <h3>Score: {{mixtapes.current.score}}</h3>
 
-    <div class="complexity">
-      <div class="complexity-item" ng-repeat="complex in mixtapes.current.complexity | orderBy: complex.percent">{{complex.hex}} – {{complex.percent * 100}}</div>
+    <!-- <div class="complexity">
+      <div class="complexity-item" ng-repeat="complex in mixtapes.current.complexity">{{complex.hex}} – {{complex.percent * 100}}</div>
     </div>
+
+    <div class="count">
+      <p>Number of colors: {{mixtapes.current.count.length}}</p>
+      <div class="count-item" ng-repeat="count in mixtapes.current.count">{{count.color}} – {{count.percent * 100}}</div>
+    </div> -->
 
     <div class="color-bar">
       <div class="color-spread" ng-repeat="color in mixtapes.current.colors" style="background: {{color.hexVal}}; width: {{color.percentage * 100}}%;"></div>

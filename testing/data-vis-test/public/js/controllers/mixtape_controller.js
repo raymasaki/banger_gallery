@@ -54,6 +54,8 @@ function MixtapeCtrl($log, $http, $filter) {
       {hexVal: '', percentage: null}
     ],
     complexity : [],
+    count: [],
+    score: 0
   };
 
   function showModal(index) {
@@ -69,19 +71,37 @@ function MixtapeCtrl($log, $http, $filter) {
     self.current.year = self.all[index].year;
     self.current.thumb_image = self.all[index].thumb_image;
     self.current.complexity = self.all[index].colorAll;
+    self.current.count = self.all[index].colorCount;
 
-    var colorArr = self.all[index].analysis.clusters;
+    // var colorArr = self.all[index].analysis.clusters;
 
-    for (var i = 0; i < 9; i++) {
-      self.current.colors[i].hexVal = colorArr[i].hex[0];
-      self.current.colors[i].percentage = colorArr[i].f;
-    }
+    // for (var i = 0; i < 9; i++) {
+    //   self.current.colors[i].hexVal = colorArr[i].hex[0];
+    //   self.current.colors[i].percentage = colorArr[i].f;
+    // }
 
-    var complexArr = self.all[index].colorAll;
+    complexityScore(self.current.complexity[0].percent,
+                self.current.complexity[1].percent,
+                self.current.complexity[2].percent,
+                self.current.complexity[5].percent,
+                self.current.complexity[6].percent,
+                self.current.complexity[7].percent,
+                self.current.count[0].percent,
+                self.current.count[1].percent,
+                self.current.count.length);
 
-    for (var j = 0; j < 9; j++) {
-      self.current.complexity.push(complexArr[j]);
-    }
+  }
 
+  function complexityScore (firstHex, secondHex, thirdHex, sixthHex, seventhHex, eighthHex, firstCount, secondCount, length) {
+    // console.log(firstHex, secondHex, thirdHex, sixthHex, seventhHex, eighthHex, firstCount, length);
+
+    var numOne = firstHex*100 - eighthHex*100;
+    var numTwo = secondHex*100 - seventhHex*100;
+    var numThree = thirdHex*100 - sixthHex*100;
+
+    var sum = numOne + numTwo + numThree + firstCount*100 + secondCount*100;
+    var score = Math.round(sum / 2); // / length;
+
+    self.current.score = score;
   }
 }
