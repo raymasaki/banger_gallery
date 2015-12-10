@@ -73,16 +73,16 @@ function MixtapeCtrl($log, $http, $filter) {
     self.current.complexity = self.all[index].colorAll;
     self.current.count = self.all[index].colorCount;
 
-    complexityScore(self.current.complexity[0].percent,
-      self.current.complexity[1].percent,
-      self.current.complexity[2].percent,
-      self.current.complexity[5].percent,
-      self.current.complexity[6].percent,
-      self.current.complexity[7].percent,
-      self.current.count[0].percent,
-      self.current.count[1].percent,
-      self.current.count.length);
+    // normalize complexity score out of 100
+    var scoreMin = 17;
+    var scoreMax = 133;
+    var currScore = self.all[index].score;
 
+    self.current.score = Math.ceil(((currScore - scoreMin)/(scoreMax - scoreMin))*100);
+
+
+
+    // color spread
     var colorArr = self.all[index].analysis.clusters;
 
     for (var i = 0; i < 8; i++) {
@@ -90,17 +90,5 @@ function MixtapeCtrl($log, $http, $filter) {
       self.current.colors[i].percentage = colorArr[i].f;
     }
 
-  }
-
-  function complexityScore (firstHex, secondHex, thirdHex, sixthHex, seventhHex, eighthHex, firstCount, secondCount, length) {
-
-    var numOne = firstHex*100 - eighthHex*100;
-    var numTwo = secondHex*100 - seventhHex*100;
-    var numThree = thirdHex*100 - sixthHex*100;
-
-    var sum = numOne + numTwo + numThree + firstCount*100 + secondCount*100;
-    var score = Math.round(sum / 2); // / length;
-
-    self.current.score = score;
   }
 }
