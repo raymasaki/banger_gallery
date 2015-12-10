@@ -9,6 +9,10 @@
     <p>Release Date: {{mixtapes.current.month}}-{{mixtapes.current.day}}-{{mixtapes.current.year}}</p>
     <h3>Score: {{mixtapes.current.score}} / 100</h3>
 
+    <div class="similar">
+      <div class="similar-cover" ng-repeat="similar in mixtapes.current.similar"><img ng-src="{{similar.thumb_image}}"></div>
+    </div>
+
     <div class="color-bar">
       <div class="color-spread" ng-repeat="color in mixtapes.current.colors" style="background: {{color.hexVal}}; width: {{color.percentage * 100}}%;"></div>
     </div>
@@ -27,6 +31,7 @@
 <a href="#" ng-click="order = '-color'">Order by color</a>
 <a href="#" ng-click="order = '-downloads'">Order by popularity</a>
 <a href="#" ng-click="order = '-score'">Order by complexity</a>
+<a href="#" ng-click="order = '-year'">Order by year</a>
 
 <ul class="grid" masonry="true">
 

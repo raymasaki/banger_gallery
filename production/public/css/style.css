@@ -72,6 +72,18 @@ body {
   height: 32px;
 }
 
+.modal > .details > .similar {
+  clear: both;
+}
+
+.modal > .details > .similar > .similar-cover {
+  float: left;
+}
+
+.modal > .details > .similar > .similar-cover > img {
+  width: 208px;
+}
+
 @media (min-width: 1200px) { /* everything above 1200 */
 
 }
