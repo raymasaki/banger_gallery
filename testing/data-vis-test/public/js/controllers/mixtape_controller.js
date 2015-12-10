@@ -74,7 +74,7 @@ function MixtapeCtrl($log, $http, $filter) {
     self.current.count = self.all[index].colorCount;
 
     // var colorArr = self.all[index].analysis.clusters;
-
+    //
     // for (var i = 0; i < 9; i++) {
     //   self.current.colors[i].hexVal = colorArr[i].hex[0];
     //   self.current.colors[i].percentage = colorArr[i].f;
