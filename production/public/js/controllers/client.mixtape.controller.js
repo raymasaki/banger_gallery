@@ -107,13 +107,11 @@ function MixtapeCtrl($log, $http, $filter) {
       self.current.colors[i].percentage = colorArr[i].f;
     }
 
-    findSimilar(self.all[index]);
-
-    console.log(self.current.similar);
+    findSimilarByComplex(self.all[index]);
 
   }
 
-  function findSimilar(currentCover) {
+  function findSimilarByComplex(currentCover) {
 
     var allCovers = self.all;
 
@@ -179,6 +177,7 @@ function MixtapeCtrl($log, $http, $filter) {
     }
 
   }
+
 
   // http://stackoverflow.com/questions/19948761/count-similarities-between-two-arrays-with-javascript
   function count_similarities(arrayA, arrayB) {
