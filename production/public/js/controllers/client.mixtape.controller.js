@@ -74,11 +74,11 @@ function MixtapeCtrl($log, $http, $filter) {
     self.current.count = self.all[index].colorCount;
 
     // normalize complexity score out of 100
-    var scoreMin = 17;
-    var scoreMax = 133;
+    var scoreMin = 15;
+    var scoreMax = 136;
     var currScore = self.all[index].score;
 
-    self.current.score = Math.ceil(((currScore - scoreMin)/(scoreMax - scoreMin))*100);
+    self.current.score = 100 - Math.ceil(((currScore - scoreMin)/(scoreMax - scoreMin))*100);
 
 
 
