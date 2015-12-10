@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mixtapeApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Banger Gallery</title>
+  <link rel="stylesheet" href="bower_components/angular/angular-csp.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="ng-cloak">
+
+  <div class="container" ng-controller="MixtapeCtrl as mixtapes" ui-view></div>
+
+  <script src="bower_components/jquery/jquery.js"></script>
+  <script src="bower_components/masonry/masonry.pkgd.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-ui-router/angular-ui-router.js"></script>
+
+  <script src="js/app.js"></script>
+  <script src="js/controllers/client.mixtape.controller.js"></script>
+  <script src="js/controllers/client.masonry.controller.js"></script>
+</body>
+</html>
