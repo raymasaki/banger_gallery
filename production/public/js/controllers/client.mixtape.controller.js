@@ -62,6 +62,22 @@ function MixtapeCtrl($log, $http, $filter) {
 
   };
 
+  self.sortOpen = false;
+
+  self.sortList = function() {
+
+    if (self.sortOpen === false){
+      angular.element('.sort').removeClass('hidden');
+      angular.element('.sort').addClass('visible');
+      self.sortOpen = true;
+    } else {
+      angular.element('.sort').removeClass('visible');
+      angular.element('.sort').addClass('hidden');
+      self.sortOpen = false;
+    }
+
+  };
+
 
 
   getCovers();

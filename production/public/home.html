@@ -37,6 +37,8 @@
     <li><a ng-click="mixtapes.colorFilter()">Color</a></li>
   </ul>
 
+  <div ng-click="mixtapes.sortList()">Sort</div>
+
   <!-- Search Artist -->
 
   <div class="artist-filter hidden">
@@ -119,7 +121,14 @@
     <li><a ng-click="colorFilter = {color: 'white'}">White</a></li>
   </ul>
 
-  <!-- <a ng-repeat="colorSingle in mixtapes.colorList" ng-click="colorFilter = {color: '{{colorSingle.color}}'}">{{colorSingle.color}}</a> -->
+  <ul class="sort hidden">
+    <li><a href="#" ng-click="order = 'title'">Title</a></li>
+    <li><a href="#" ng-click="order = 'artist'">Artist</a></li>
+    <li><a href="#" ng-click="order = '-color'">Color</a></li>
+    <li><a href="#" ng-click="order = '-downloads'">Popularity</a></li>
+    <li><a href="#" ng-click="order = '-score'">Complexity</a></li>
+    <li><a href="#" ng-click="order = '-year'">Year</a></li>
+  </ul>
 
 </div>
 
@@ -138,13 +147,6 @@
 <div ng-show="mixtapes.showArtist" class="current-artist">
   <span ng-click="artistFilter = {artist: ''}; mixtapes.showArtist = false">{{mixtapes.currArtist}}</span>
 </div>
-
-<a href="#" ng-click="order = 'title'">Order by title</a>
-<a href="#" ng-click="order = 'artist'">Order by artist</a>
-<a href="#" ng-click="order = '-color'">Order by color</a>
-<a href="#" ng-click="order = '-downloads'">Order by popularity</a>
-<a href="#" ng-click="order = '-score'">Order by complexity</a>
-<a href="#" ng-click="order = '-year'">Order by year</a>
 
 <ul class="grid" masonry="true">
 

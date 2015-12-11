@@ -17,11 +17,11 @@ ul.color-filter, ul.state-filter {
   overflow-y: scroll;
 }
 
-ul.color-filter.hidden, ul.state-filter.hidden, .artist-filter.hidden {
+ul.color-filter.hidden, ul.state-filter.hidden, .artist-filter.hidden, ul.sort.hidden {
   display: none;
 }
 
-ul.color-filter.visible, ul.state-filter.visible, .artist-filter.visible {
+ul.color-filter.visible, ul.state-filter.visible, .artist-filter.visible, ul.sort.visible {
   display: block;
 }
 
