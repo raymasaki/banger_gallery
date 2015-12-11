@@ -7,22 +7,12 @@ function MixtapeCtrl($log, $http, $filter) {
   self.all = [];
 
   self.showDetail = false;
+  self.showArtist = false;
   self.showModal = showModal;
-
-  self.artistSubmit = function (name) {
-    // if ($scope.text) {
-    //   $scope.list.push(this.text);
-    //   $scope.text = '';
-    // }
-    console.log(name);
-  };
+  self.currArtist = null;
 
   self.selectedArtist = function(selected) {
-    if (selected) {
-      window.alert('You have selected ' + selected.originalObject.name);
-    } else {
-      console.log('cleared');
-    }
+    self.currArtist = selected.originalObject.name;
   };
 
   getCovers();

@@ -24,7 +24,6 @@
 
 <h1>{{mixtapes.title}}</h1>
 
-<!-- <form ng-submit="mixtapes.artistSubmit(selectedArtist.originalObject.name)"> -->
 <div angucomplete-alt id="ex1"
     placeholder="Search for an artist..."
     pause="100"
@@ -35,29 +34,16 @@
     minlength="1"
     input-class="form-artist"
     clear-selected="true"
-    ></div>
+    ng-enter="artistFilter = {artist: mixtapes.currArtist}; mixtapes.showArtist = true">
+</div>
 
-    <!-- <input type="submit" id="submit" value="Submit" /> -->
-    <a ng-click="artistFilter = {artist: selectedArtist.originalObject.name}">Search</a>
-</form>
-
-    <!-- <form ng-submit="submit()" ng-controller="ExampleController">
-      Enter text and hit enter:
-      <input type="text" ng-model="text" name="text" />
-      <input type="submit" id="submit" value="Submit" />
-      <pre>list={{list}}</pre>
-    </form> -->
-
-  <!-- <div angucomplete-alt id="ex1" placeholder="Search countries" maxlength="50" pause="100" selected-object="selectedCountry" local-data="countries" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight">
-        </div> -->
-
-    <div>
-      <!-- You selected <span class="bold-span">{{selectedArtist.originalObject.name}}</span> -->
-    </div>
+<div ng-show="mixtapes.showArtist" class="current-artist">
+  <span ng-click="artistFilter = {artist: ''}; mixtapes.showArtist = false">{{mixtapes.currArtist}}</span>
+</div>
 
 <!-- <input type="text" ng-model="search.artist" placeholder="Search for an artist..." /> -->
-<input type="text" ng-model="search.state" placeholder="Search for a state..." />
-<input type="text" ng-model="search.color" placeholder="Search for a color..." />
+<!-- <input type="text" ng-model="search.state" placeholder="Search for a state..." />
+<input type="text" ng-model="search.color" placeholder="Search for a color..." /> -->
 
 <a ng-click="colorFilter = {color: ''}">Clear</a>
 <a ng-click="colorFilter = {color: 'blue'}">Blue</a>
