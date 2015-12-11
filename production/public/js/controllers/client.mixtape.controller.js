@@ -3,7 +3,6 @@ app.controller('MixtapeCtrl', ['$log', '$http', '$filter', MixtapeCtrl]);
 function MixtapeCtrl($log, $http, $filter) {
 
   var self = this;
-  self.title = "Banger Gallery";
   self.all = [];
 
   self.showDetail = false;

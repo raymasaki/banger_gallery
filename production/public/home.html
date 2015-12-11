@@ -22,8 +22,6 @@
   <div class="modal-bg" ng-click="mixtapes.showDetail = false"></div>
 </div>
 
-<h1>{{mixtapes.title}}</h1>
-
 <div angucomplete-alt id="ex1"
     placeholder="Search for an artist..."
     pause="100"
@@ -47,13 +45,22 @@
 
 <a ng-click="colorFilter = {color: ''}">Clear</a>
 <a ng-click="colorFilter = {color: 'blue'}">Blue</a>
+
 <!-- click on blue, populates into results array -->
 <!-- results array is displayed -->
 <a ng-click="colorFilter = {color: 'red'}">Red</a>
 
+<divclass="current-color">
+  <span ng-click="colorFilter = {color: ''}">{{colorFilter.color}}</span>
+</div>
+
 <a ng-click="stateFilter = {state: ''}">Clear</a>
 <a ng-click="stateFilter = {state: 'california'}">California</a>
 <a ng-click="stateFilter = {state: 'new york'}">New York</a>
+
+<divclass="current-state">
+  <span ng-click="stateFilter = {state: ''}">{{stateFilter.state}}</span>
+</div>
 <br>
 
 <a href="#" ng-click="order = 'title'">Order by title</a>
