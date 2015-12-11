@@ -10,6 +10,14 @@ function MixtapeCtrl($log, $http, $filter) {
   self.showModal = showModal;
   self.currArtist = null;
 
+  self.fadeHover = function() {
+    angular.element('.fade').css('opacity', '.2');
+  };
+
+  self.fadeOut = function() {
+    angular.element('.fade').css('opacity', '1');
+  };
+
   self.selectedArtist = function(selected) {
     self.currArtist = selected.originalObject.name;
   };
@@ -22,6 +30,18 @@ function MixtapeCtrl($log, $http, $filter) {
       angular.element('.artist-filter').removeClass('hidden');
       angular.element('.artist-filter').addClass('visible');
       self.artistFilterOpen = true;
+
+      angular.element('.color-filter').removeClass('visible');
+      angular.element('.color-filter').addClass('hidden');
+      self.colorFilterOpen = false;
+
+      angular.element('.state-filter').removeClass('visible');
+      angular.element('.state-filter').addClass('hidden');
+      self.stateFilterOpen = false;
+
+      angular.element('.sort').removeClass('visible');
+      angular.element('.sort').addClass('hidden');
+      self.sortOpen = false;
     } else {
       angular.element('.artist-filter').removeClass('visible');
       angular.element('.artist-filter').addClass('hidden');
@@ -38,6 +58,18 @@ function MixtapeCtrl($log, $http, $filter) {
       angular.element('.state-filter').removeClass('hidden');
       angular.element('.state-filter').addClass('visible');
       self.stateFilterOpen = true;
+
+      angular.element('.color-filter').removeClass('visible');
+      angular.element('.color-filter').addClass('hidden');
+      self.colorFilterOpen = false;
+
+      angular.element('.artist-filter').removeClass('visible');
+      angular.element('.artist-filter').addClass('hidden');
+      self.artistFilterOpen = false;
+
+      angular.element('.sort').removeClass('visible');
+      angular.element('.sort').addClass('hidden');
+      self.sortOpen = false;
     } else {
       angular.element('.state-filter').removeClass('visible');
       angular.element('.state-filter').addClass('hidden');
@@ -54,6 +86,18 @@ function MixtapeCtrl($log, $http, $filter) {
       angular.element('.color-filter').removeClass('hidden');
       angular.element('.color-filter').addClass('visible');
       self.colorFilterOpen = true;
+
+      angular.element('.state-filter').removeClass('visible');
+      angular.element('.state-filter').addClass('hidden');
+      self.stateFilterOpen = false;
+
+      angular.element('.artist-filter').removeClass('visible');
+      angular.element('.artist-filter').addClass('hidden');
+      self.artistFilterOpen = false;
+
+      angular.element('.sort').removeClass('visible');
+      angular.element('.sort').addClass('hidden');
+      self.sortOpen = false;
     } else {
       angular.element('.color-filter').removeClass('visible');
       angular.element('.color-filter').addClass('hidden');
@@ -70,6 +114,18 @@ function MixtapeCtrl($log, $http, $filter) {
       angular.element('.sort').removeClass('hidden');
       angular.element('.sort').addClass('visible');
       self.sortOpen = true;
+
+      angular.element('.state-filter').removeClass('visible');
+      angular.element('.state-filter').addClass('hidden');
+      self.stateFilterOpen = false;
+
+      angular.element('.artist-filter').removeClass('visible');
+      angular.element('.artist-filter').addClass('hidden');
+      self.artistFilterOpen = false;
+
+      angular.element('.color-filter').removeClass('visible');
+      angular.element('.color-filter').addClass('hidden');
+      self.colorFilterOpen = false;
     } else {
       angular.element('.sort').removeClass('visible');
       angular.element('.sort').addClass('hidden');

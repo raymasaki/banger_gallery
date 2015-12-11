@@ -32,12 +32,12 @@
 <div class="filter">
 
   <ul class="filter-type">
-    <li><a ng-click="mixtapes.artistFilter()">Artist</a></li>
-    <li><a ng-click="mixtapes.stateFilter()">Location</a></li>
-    <li><a ng-click="mixtapes.colorFilter()">Color</a></li>
+    <li ng-click="mixtapes.artistFilter()">Artist</li>
+    <li ng-click="mixtapes.stateFilter()">Location</li>
+    <li ng-click="mixtapes.colorFilter()">Color</li>
   </ul>
 
-  <div ng-click="mixtapes.sortList()">Sort</div>
+  <div ng-click="mixtapes.sortList()" class="sort">Sort</div>
 
   <!-- Search Artist -->
 
@@ -136,13 +136,17 @@
 
 <!--================== GRID VIEW ==================-->
 
-<divclass="current-color">
+<div class="gradient"></div>
+
+<div class="current-color">
   <span ng-click="colorFilter = {color: ''}">{{colorFilter.color}}</span>
 </div>
 
-<divclass="current-state">
+<div class="current-state">
   <span ng-click="stateFilter = {state: ''}">{{stateFilter.state}}</span>
 </div>
+
+<div class="fade" ng-mouseover="mixtapes.fadeHover()" ng-mouseleave="mixtapes.fadeOut()"></div>
 
 <div ng-show="mixtapes.showArtist" class="current-artist">
   <span ng-click="artistFilter = {artist: ''}; mixtapes.showArtist = false">{{mixtapes.currArtist}}</span>
