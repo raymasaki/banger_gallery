@@ -4,9 +4,16 @@
   <meta charset="UTF-8">
   <title>Banger Gallery</title>
   <link rel="stylesheet" href="bower_components/angular/angular-csp.css">
+  <link rel="stylesheet" href="bower_components/angucomplete-alt/angucomplete-alt.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="ng-cloak">
+  <nav>
+    <ul>
+      <li><a ui-sref="home">Home</a></li>
+      <li><a ui-sref="about">About</a></li>
+    </ul>
+  </nav>
 
   <div class="container" ng-controller="MixtapeCtrl as mixtapes" ui-view></div>
 
@@ -14,8 +21,7 @@
   <script src="bower_components/masonry/masonry.pkgd.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-ui-router/angular-ui-router.js"></script>
-  <!-- <script src="bower_components/angularjs-autocomplete/angularjs-autocomplete.js"></script> -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angucomplete-alt/2.1.0/angucomplete-alt.min.js"></script>
+  <script src="bower_components/angucomplete-alt/angucomplete-alt.js"></script>
 
   <script src="js/app.js"></script>
   <script src="js/controllers/client.mixtape.controller.js"></script>

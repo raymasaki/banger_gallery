@@ -33,9 +33,9 @@ function MainRouter($stateProvider, $urlRouterProvider) {
       url: '/',
       templateUrl: 'home.html'
     })
-    .state('detail', {
-      url: '/detail/:id',
-      templateUrl: 'detail.html'
+    .state('about', {
+      url: '/about',
+      templateUrl: 'about.html'
     });
 
   $urlRouterProvider.otherwise('/');
