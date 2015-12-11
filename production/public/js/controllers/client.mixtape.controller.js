@@ -14,7 +14,87 @@ function MixtapeCtrl($log, $http, $filter) {
     self.currArtist = selected.originalObject.name;
   };
 
+  self.artistFilterOpen = false;
+
+  self.artistFilter = function() {
+
+    if (self.artistFilterOpen === false){
+      angular.element('.artist-filter').removeClass('hidden');
+      angular.element('.artist-filter').addClass('visible');
+      self.artistFilterOpen = true;
+    } else {
+      angular.element('.artist-filter').removeClass('visible');
+      angular.element('.artist-filter').addClass('hidden');
+      self.artistFilterOpen = false;
+    }
+
+  };
+
+  self.stateFilterOpen = false;
+
+  self.stateFilter = function() {
+
+    if (self.stateFilterOpen === false){
+      angular.element('.state-filter').removeClass('hidden');
+      angular.element('.state-filter').addClass('visible');
+      self.stateFilterOpen = true;
+    } else {
+      angular.element('.state-filter').removeClass('visible');
+      angular.element('.state-filter').addClass('hidden');
+      self.stateFilterOpen = false;
+    }
+
+  };
+
+  self.colorFilterOpen = false;
+
+  self.colorFilter = function() {
+
+    if (self.colorFilterOpen === false){
+      angular.element('.color-filter').removeClass('hidden');
+      angular.element('.color-filter').addClass('visible');
+      self.colorFilterOpen = true;
+    } else {
+      angular.element('.color-filter').removeClass('visible');
+      angular.element('.color-filter').addClass('hidden');
+      self.colorFilterOpen = false;
+    }
+
+  };
+
+
+
   getCovers();
+
+  self.colorList = [
+    {color: 'black'},
+    {color: 'navy'},
+    {color: 'blue'},
+    {color: 'forest'},
+    {color: 'teal'},
+    {color: 'azure'},
+    {color: 'green'},
+    {color: 'spring'},
+    {color: 'cyan'},
+    {color: 'maroon'},
+    {color: 'purple'},
+    {color: 'violet'},
+    {color: 'olive'},
+    {color: 'gray'},
+    {color: 'cornflower'},
+    {color: 'lime green'},
+    {color: 'neon green'},
+    {color: 'aquamarine'},
+    {color: 'red'},
+    {color: 'rose'},
+    {color: 'magenta'},
+    {color: 'orange'},
+    {color: 'salmon'},
+    {color: 'pink'},
+    {color: 'yellow'},
+    {color: 'beige'},
+    {color: 'white'}
+  ];
 
   self.artistList = [
     {name: '2 Chainz'},

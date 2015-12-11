@@ -1,7 +1,33 @@
+/***************** GLOBAL *****************/
+
+
 body {
   font-family: helvetica, sans-serif;
   background: #F7F9F8;
 }
+
+
+/***************** FILTER SIDEBAR *****************/
+
+
+ul.color-filter, ul.state-filter {
+  width: 208px;
+  height: 260px;
+  background: #FFFFFF;
+  overflow-y: scroll;
+}
+
+ul.color-filter.hidden, ul.state-filter.hidden, .artist-filter.hidden {
+  display: none;
+}
+
+ul.color-filter.visible, ul.state-filter.visible, .artist-filter.visible {
+  display: block;
+}
+
+
+/***************** GRID *****************/
+
 
 .grid {
   margin: 0;
@@ -15,15 +41,7 @@ body {
   padding: 2px;
   margin: 6px;
   box-shadow: 0 1px 10px rgba(0,0,0,.3);
-  /*transform: scale(1);*/
-  /*transition: all 200ms ease-out;*/
 }
-
-/*.grid-item:hover {
-  box-shadow: 0 0 15px rgba(0,0,0,.5);
-  transition: all 100ms ease-in-out;
-  transform: scale(1.1);
-}*/
 
 .grid-item > img {
   width: 100%;
@@ -40,6 +58,10 @@ body {
 .grid-item {
   display: inline-block;
 }
+
+
+/***************** DETAIL MODAL *****************/
+
 
 .modal {
   position: fixed;
@@ -108,26 +130,11 @@ body {
   width: 208px;
 }
 
-/*.grid-item:hover .tooltip {
-  opacity: 1;
-  cursor: default;
-}
 
-.tooltip {
-  background: rgba(0, 0, 0, 0.85);
-  color: white;
-  font-size: 11px;
-  position: absolute;
-  top: 0;
-  opacity: 0;
-  z-index: 100;
-  width: 144px;
-}
 
-.tooltip p {
-  margin: 0;
-  padding: 0;
-}*/
+/***************** MEDIA QUERIES *****************/
+
+
 
 @media (min-width: 1200px) { /* everything above 1200 */
 
@@ -142,7 +149,11 @@ body {
 
 }
 
-/**** Transitions ****/
+
+
+/***************** TRANSITIONS *****************/
+
+
 
 .masonry .masonry-enter { /* limit animated properties for entering elements */
     -webkit-transition-property: -webkit-transform, opacity;
