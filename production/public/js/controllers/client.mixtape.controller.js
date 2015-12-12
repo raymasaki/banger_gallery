@@ -1,5 +1,20 @@
 app.controller('MixtapeCtrl', ['$log', '$http', '$filter', MixtapeCtrl]);
 
+// app.directive('scroll', function ($window) {
+//   return function(scope, element, attrs) {
+//       angular.element($window).bind('scroll', function() {
+//            if (this.pageYOffset >= 100) {
+//                scope.boolChangeClass = true;
+//                console.log('Scrolled below header.');
+//            } else {
+//                scope.boolChangeClass = false;
+//                console.log('Header is in view.');
+//            }
+//           scope.$apply();
+//       });
+//   };
+// });
+
 function MixtapeCtrl($log, $http, $filter) {
 
   var self = this;
@@ -42,6 +57,7 @@ function MixtapeCtrl($log, $http, $filter) {
       angular.element('.sort').removeClass('visible');
       angular.element('.sort').addClass('hidden');
       self.sortOpen = false;
+
     } else {
       angular.element('.artist-filter').removeClass('visible');
       angular.element('.artist-filter').addClass('hidden');
@@ -70,6 +86,7 @@ function MixtapeCtrl($log, $http, $filter) {
       angular.element('.sort').removeClass('visible');
       angular.element('.sort').addClass('hidden');
       self.sortOpen = false;
+
     } else {
       angular.element('.state-filter').removeClass('visible');
       angular.element('.state-filter').addClass('hidden');
@@ -113,6 +130,7 @@ function MixtapeCtrl($log, $http, $filter) {
     if (self.sortOpen === false){
       angular.element('.sort').removeClass('hidden');
       angular.element('.sort').addClass('visible');
+      angular.element('.sort-button').addClass('active');
       self.sortOpen = true;
 
       angular.element('.state-filter').removeClass('visible');
@@ -128,6 +146,7 @@ function MixtapeCtrl($log, $http, $filter) {
       self.colorFilterOpen = false;
     } else {
       angular.element('.sort').removeClass('visible');
+      angular.element('.sort-button').removeClass('active');
       angular.element('.sort').addClass('hidden');
       self.sortOpen = false;
     }

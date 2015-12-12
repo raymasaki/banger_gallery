@@ -26,6 +26,7 @@ var app = angular.module('mixtapeApp', ['ui.router', 'angucomplete-alt'])
         });
     };
   });
+  
 
 function MainRouter($stateProvider, $urlRouterProvider) {
   $stateProvider
