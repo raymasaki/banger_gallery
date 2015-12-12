@@ -8,6 +8,10 @@ body {
   line-height: 32px;
 }
 
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
 
 /***************** FILTER *****************/
 
@@ -129,8 +133,21 @@ textarea, input {
   font-size: 14px;
 }
 
-span.filter-artist, span.filter-state, span.filter-color {
+span.filter-state, span.filter-color {
   text-transform: capitalize;
+}
+
+.artist-label::after, .state-label::after, .color-label::after {
+  content: "▾";
+  color: #CECECE;
+  padding-left: 6px;
+  margin-top: -2px;
+}
+
+span.filter-artist {
+  float: left;
+  margin-top: -44px;
+  padding-left: 8px;
 }
 
 /***************** GRID *****************/

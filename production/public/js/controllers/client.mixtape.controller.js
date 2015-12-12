@@ -199,7 +199,7 @@ function MixtapeCtrl($log, $http, $filter) {
     {name: 'Action Bronson'},
     {name: 'The Alchemist'},
     {name: 'Akon'},
-    {name: 'ASAP Ferg'},
+    {name: 'A$AP Ferg'},
     {name: 'Asher Roth'},
     {name: 'August Alsina'},
     {name: 'B.o.B'},

@@ -3,7 +3,7 @@
 <div class="modal" ng-show="mixtapes.showDetail">
 
   <div class="details">
-    <a ng-click="mixtapes.showDetail = false" class="close">CLOSE</a>
+    <a ng-click="mixtapes.showDetail = false" class="close">X</a>
     <img ng-src="{{mixtapes.current.thumb_image}}" alt="{{mixtapes.current.title}}">
     <h2>{{mixtapes.current.artist}}</h2>
     <h2>{{mixtapes.current.title}}</h2>
@@ -33,8 +33,7 @@
 
   <ul class="filter-type">
     <li ng-click="mixtapes.artistFilter()">
-      <span class="artist-label" ng-hide="mixtapes.currArtist">Artist</span>
-      <span class="filter-artist">{{mixtapes.currArtist}}</span>
+      <span class="artist-label">Artist</span>
     </li>
 
     <li ng-click="mixtapes.stateFilter()">
@@ -50,12 +49,12 @@
 
   <div ng-click="mixtapes.sortList()" class="sort-button">
     <ul class="sort hidden">
-      <li><a href="#" ng-click="order = 'title'">Title</a></li>
-      <li><a href="#" ng-click="order = 'artist'">Artist</a></li>
-      <li><a href="#" ng-click="order = '-color'">Color</a></li>
-      <li><a href="#" ng-click="order = '-downloads'">Popularity</a></li>
-      <li><a href="#" ng-click="order = '-score'">Complexity</a></li>
-      <li><a href="#" ng-click="order = '-year'">Year</a></li>
+      <li><a ng-click="order = 'title'">Title</a></li>
+      <li><a ng-click="order = 'artist'">Artist</a></li>
+      <li><a ng-click="order = '-color'">Color</a></li>
+      <li><a ng-click="order = '-downloads'">Popularity</a></li>
+      <li><a ng-click="order = '-score'">Complexity</a></li>
+      <li><a ng-click="order = '-year'">Year</a></li>
     </ul>
   </div>
 
@@ -109,8 +108,6 @@
 
   <!-- Color Filter -->
 
-  <!-- <a ng-repeat="color in mixtapes.colorList" ng-click="colorFilter = {color: 'color.name'}">{{color.name}}</a> -->
-
   <ul class="color-filter hidden" onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';">
     <li><a ng-click="colorFilter = {color: ''}; mixtapes.colorFilter()">All</a></li>
     <li><a ng-click="colorFilter = {color: 'Black'}; mixtapes.colorFilter()">Black</a></li>
@@ -119,7 +116,6 @@
     <li><a ng-click="colorFilter = {color: 'Forest'}; mixtapes.colorFilter()">Forest</a></li>
     <li><a ng-click="colorFilter = {color: 'Teal'}; mixtapes.colorFilter()">Teal</a></li>
     <li><a ng-click="colorFilter = {color: 'Green'}; mixtapes.colorFilter()">Green</a></li>
-    <li><a ng-click="colorFilter = {color: 'Cyan'}; mixtapes.colorFilter()">Cyan</a></li>
     <li><a ng-click="colorFilter = {color: 'Maroon'}; mixtapes.colorFilter()">Maroon</a></li>
     <li><a ng-click="colorFilter = {color: 'Purple'}; mixtapes.colorFilter()">Purple</a></li>
     <li><a ng-click="colorFilter = {color: 'Olive'}; mixtapes.colorFilter()">Olive</a></li>
@@ -143,7 +139,12 @@
 
 <div class="gradient"></div>
 
-<div class="fade" ng-mouseover="mixtapes.fadeHover()" ng-mouseleave="mixtapes.fadeOut()"></div>
+<div class="fade"></div>
+
+<span class="filter-artist" ng-show="mixtapes.currArtist">
+  {{mixtapes.currArtist}}
+  <a class="clear-artist" ng-click="artistFilter = {artist: ''}; mixtapes.currArtist = ''">X</a>
+</span>
 
 <ul class="grid" masonry="true">
 
