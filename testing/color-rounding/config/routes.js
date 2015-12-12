@@ -537,7 +537,7 @@ module.exports = function(app) {
           break;
 
         case "125, 255, 0":
-          currColor = "lime";
+          currColor = "gold";
 
 
           if (complexArr.length === 0) { // first time only
@@ -1037,7 +1037,7 @@ module.exports = function(app) {
           break;
 
         case "125, 255, 0":
-          rounding = "green lime";
+          rounding = "yellow gold";
           roundingArr.push(rounding);
           break;
 
