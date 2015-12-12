@@ -144,10 +144,16 @@ span.filter-state, span.filter-color {
   margin-top: -2px;
 }
 
-span.filter-artist {
+span.filter-artist, .logo-small {
   float: left;
   margin-top: -44px;
   padding-left: 8px;
+}
+
+.about-link {
+  float: right;
+  margin-top: -44px;
+  padding-right: 8px;
 }
 
 /***************** GRID *****************/
@@ -164,7 +170,7 @@ span.filter-artist {
 }
 
 .grid {
-  margin: 80px 0 32px 0;
+  margin: 80px 0 120px 0;
   padding: 0;
 }
 
@@ -203,10 +209,6 @@ span.filter-artist {
   pointer-events: none;
 }
 
-nav {
-  margin-bottom: 120px;
-}
-
 
 /***************** DETAIL MODAL *****************/
 
@@ -222,13 +224,17 @@ nav {
 
 .modal > .details {
   background: white;
-  width: 640px;
+  width: 912px;
+  height: 576px;
+  overflow-y: scroll;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
   z-index: 100;
   box-shadow: 0 12px 32px rgba(0,0,0,1);
+  box-sizing: border-box;
+  padding: 32px;
 }
 
 .modal-bg {
@@ -250,7 +256,7 @@ nav {
 
 .modal > .details > img {
   float: left;
-  padding-right: 16px;
+  padding-right: 32px;
   width: 300px;
 }
 
@@ -260,9 +266,29 @@ nav {
   margin-top: 32px;
 }
 
+.modal > .details > .color-bar-similar {
+  float: left;
+  width: 100%;
+  margin-top: 32px;
+}
+
 .modal > .details > .color-bar > .color-spread {
   float: left;
   height: 32px;
+}
+
+.similar-cover {
+  margin: 16px 16px 0 0;
+}
+
+.similar-cover > img {
+  padding-bottom: 12px;
+}
+
+.similar-cover > .color-bar-similar > .color-spread-similar {
+
+  float: left;
+  height: 16px;
 }
 
 .modal > .details > .similar {

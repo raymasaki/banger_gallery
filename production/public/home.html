@@ -1,8 +1,8 @@
 <!--================== DETAIL MODAL ==================-->
 
-<div class="modal" ng-show="mixtapes.showDetail">
+<div class="modal" ng-show="mixtapes.showDetail" onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';">
 
-  <div class="details">
+  <div class="details" ng-show="mixtapes.showDetail" onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';">
     <a ng-click="mixtapes.showDetail = false" class="close">X</a>
     <img ng-src="{{mixtapes.current.thumb_image}}" alt="{{mixtapes.current.title}}">
     <h2>{{mixtapes.current.artist}}</h2>
@@ -12,13 +12,21 @@
     <p>Release Date: {{mixtapes.current.month}}-{{mixtapes.current.day}}-{{mixtapes.current.year}}</p>
     <h3>Score: {{mixtapes.current.score}} / 100</h3>
 
-    <div class="similar">
-      <div class="similar-cover" ng-repeat="similar in mixtapes.current.similar" ng-click="mixtapes.showModal(similar._id)"><img ng-src="{{similar.thumb_image}}"></div>
-    </div>
-
     <div class="color-bar">
       <div class="color-spread" ng-repeat="color in mixtapes.current.colors" style="background: {{color.hexVal}}; width: {{color.percentage * 100}}%;"></div>
     </div>
+
+    <div class="similar">
+      <div class="similar-cover" ng-repeat="similar in mixtapes.current.similar" ng-click="mixtapes.showModal(similar._id)">
+        <img ng-src="{{similar.thumb_image}}">
+
+        <div class="color-bar-similar">
+          <div class="color-spread-similar" ng-repeat="color in similar.colorAll" style="background: {{color.hex}}; width: {{color.percent * 100}}%;"></div>
+        </div>
+        
+      </div>
+    </div>
+
 
   </div>
 
@@ -141,10 +149,14 @@
 
 <div class="fade"></div>
 
+<p class="logo-small" ng-hide="mixtapes.currArtist">BANGER GALLERY</p>
+
 <span class="filter-artist" ng-show="mixtapes.currArtist">
   {{mixtapes.currArtist}}
   <a class="clear-artist" ng-click="artistFilter = {artist: ''}; mixtapes.currArtist = ''">X</a>
 </span>
+
+<a class="about-link" ui-sref="about">What is this?</a>
 
 <ul class="grid" masonry="true">
 
