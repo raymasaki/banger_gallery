@@ -225,7 +225,7 @@ span.filter-artist, .logo-small {
 .modal > .details {
   background: white;
   width: 912px;
-  height: 576px;
+  height: 75%;
   overflow-y: scroll;
   position: absolute;
   top: 50%;
@@ -302,6 +302,44 @@ span.filter-artist, .logo-small {
 .modal > .details > .similar > .similar-cover > img {
   cursor: crosshair;
   width: 208px;
+}
+
+.complexity-graph {
+  margin-top: 32px;
+  float: left;
+  clear: both;
+  width: 100%;
+  background: #ECEFF1;
+  height: 240px;
+  box-sizing: border-box;
+  padding: 32px 24px 24px 24px;
+}
+
+.complexity-graph .dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0,0,0,.3);
+  left: 50%;
+  margin-left: -8px;
+}
+
+.complexity-graph .score {
+  opacity: 0;
+}
+
+.complexity-graph .dot:hover .score {
+  opacity: 1;
+}
+
+.complexity-graph .year {
+  text-align: center;
+  width: 100%;
+  font-size: 14px;
+  position: absolute;
+  bottom: 0;
+  transform: rotateZ(-36deg);
+  margin-left: -8px;
 }
 
 

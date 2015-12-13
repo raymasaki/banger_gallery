@@ -427,8 +427,11 @@ function MixtapeCtrl($log, $http, $filter) {
     complexity: [],
     count: [],
     score: 0,
-    similar: []
+    similar: [],
+    allByArtist: []
   };
+
+  self.normalized = false;
 
   function showModal(index) {
     self.showDetail = true;
@@ -464,7 +467,49 @@ function MixtapeCtrl($log, $http, $filter) {
     }
 
     findSimilarByComplex(self.all[index]);
+    findAllByArtist(self.all[index]);
 
+    self.normalized = true;
+
+
+  }
+
+  function findAllByArtist(currentCover) {
+    // console.log(currentCover);
+    var artist = currentCover.artist;
+
+    var allByArtist = [];
+
+    var allCovers = self.all;
+
+    allCovers.forEach( function(cover, index) {
+      if (cover.artist === artist) {
+
+        if (self.normalized === false) {
+          var scoreMin = 15;
+          var scoreMax = 136;
+          var currScore = self.all[index].score;
+
+          self.all[index].score = 100 - Math.ceil(((currScore - scoreMin) / (scoreMax - scoreMin)) * 100);
+        }
+
+        allByArtist.push(self.all[index]);
+
+      }
+    });
+
+    allByArtist.sort(function (a, b) {
+      if (a.year > b.year) {
+        return 1;
+      }
+      if (a.year < b.year) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    });
+
+    self.current.allByArtist = allByArtist;
   }
 
   function findSimilarByComplex(currentCover) {

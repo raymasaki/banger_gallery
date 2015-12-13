@@ -13,7 +13,16 @@
     <h3>Score: {{mixtapes.current.score}} / 100</h3>
 
     <div class="color-bar">
-      <div class="color-spread" ng-repeat="color in mixtapes.current.colors" style="background: {{color.hexVal}}; width: {{color.percentage * 100}}%;"></div>
+      <div class="color-spread" ng-repeat="color in mixtapes.current.colors" style="background: {{color.hexVal}}; width: {{color.percentage * 100}}%"></div>
+    </div>
+
+    <div class="complexity-graph">
+      <div class="complexity-score" ng-repeat="mixtape in mixtapes.current.allByArtist" style="width: {{100 / mixtapes.current.allByArtist.length}}%; float: left; position: relative; height: 100%;">
+
+        <div class="dot" style="background: {{mixtape.colorAll[0].hex}}; position: absolute; bottom: {{mixtape.score}}%"><span class="score">{{mixtape.score}}</span></div>
+
+        <span class="year">{{mixtape.year}}</span>
+      </div>
     </div>
 
     <div class="similar">
@@ -23,7 +32,7 @@
         <div class="color-bar-similar">
           <div class="color-spread-similar" ng-repeat="color in similar.colorAll" style="background: {{color.hex}}; width: {{color.percent * 100}}%;"></div>
         </div>
-        
+
       </div>
     </div>
 
