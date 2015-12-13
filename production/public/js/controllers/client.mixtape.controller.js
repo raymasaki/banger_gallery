@@ -1,20 +1,5 @@
 app.controller('MixtapeCtrl', ['$log', '$http', '$filter', MixtapeCtrl]);
 
-// app.directive('scroll', function ($window) {
-//   return function(scope, element, attrs) {
-//       angular.element($window).bind('scroll', function() {
-//            if (this.pageYOffset >= 100) {
-//                scope.boolChangeClass = true;
-//                console.log('Scrolled below header.');
-//            } else {
-//                scope.boolChangeClass = false;
-//                console.log('Header is in view.');
-//            }
-//           scope.$apply();
-//       });
-//   };
-// });
-
 function MixtapeCtrl($log, $http, $filter) {
 
   var self = this;
@@ -25,19 +10,17 @@ function MixtapeCtrl($log, $http, $filter) {
   self.showModal = showModal;
   self.currArtist = null;
 
-  self.fadeHover = function() {
-    angular.element('.fade').css('opacity', '.2');
-  };
-
-  self.fadeOut = function() {
-    angular.element('.fade').css('opacity', '1');
-  };
-
+  // Makes the searched artist the current artist
   self.selectedArtist = function(selected) {
     self.currArtist = selected.originalObject.name;
   };
 
   self.artistFilterOpen = false;
+
+
+  //=======================================//
+  ///////////////// FILTERS /////////////////
+  //=======================================//
 
   self.artistFilter = function() {
 
@@ -154,38 +137,34 @@ function MixtapeCtrl($log, $http, $filter) {
   };
 
 
+  // call to get all the covers
 
   getCovers();
 
-  self.colorList = [
-    {color: 'black'},
-    {color: 'navy'},
-    {color: 'blue'},
-    {color: 'forest'},
-    {color: 'teal'},
-    {color: 'azure'},
-    {color: 'green'},
-    {color: 'spring'},
-    {color: 'cyan'},
-    {color: 'maroon'},
-    {color: 'purple'},
-    {color: 'violet'},
-    {color: 'olive'},
-    {color: 'gray'},
-    {color: 'cornflower'},
-    {color: 'lime green'},
-    {color: 'neon green'},
-    {color: 'aquamarine'},
-    {color: 'red'},
-    {color: 'rose'},
-    {color: 'magenta'},
-    {color: 'orange'},
-    {color: 'salmon'},
-    {color: 'pink'},
-    {color: 'yellow'},
-    {color: 'beige'},
-    {color: 'white'}
-  ];
+  function getCovers() {
+    $http
+      .get('/covers')
+      .then(function(res) {
+
+        var coverData = res.data;
+
+        for (var i = 0; i < coverData.length; i++) {
+          coverData[i].thumb_image = 'https://s3-us-west-2.amazonaws.com/banger-gallery/covers' + jpgName(coverData[i].thumb_image);
+        }
+
+        function jpgName(str) {
+          return str.substring(34);
+        }
+
+        self.all = coverData;
+      })
+      .catch(function(res) {
+        $log.error('failure', res);
+      });
+  }
+
+
+  // artist list for autocomplete
 
   self.artistList = [
     {name: '2 Chainz'},
@@ -367,27 +346,9 @@ function MixtapeCtrl($log, $http, $filter) {
     {name: 'Young Thug'}
   ];
 
-  function getCovers() {
-    $http
-      .get('/covers')
-      .then(function(res) {
-
-        var coverData = res.data;
-
-        for (var i = 0; i < coverData.length; i++) {
-          coverData[i].thumb_image = 'https://s3-us-west-2.amazonaws.com/banger-gallery/covers' + jpgName(coverData[i].thumb_image);
-        }
-
-        function jpgName(str) {
-          return str.substring(34);
-        }
-
-        self.all = coverData;
-      })
-      .catch(function(res) {
-        $log.error('failure', res);
-      });
-  }
+  //=============================================//
+  ///////////////// MODAL DETAILS /////////////////
+  //=============================================//
 
   self.current = {
     artist: null,
@@ -431,8 +392,10 @@ function MixtapeCtrl($log, $http, $filter) {
     allByArtist: []
   };
 
+  // normalizes complexity score for graph
   self.normalized = false;
 
+  // instantiates all the data for the modal
   function showModal(index) {
     self.showDetail = true;
 
@@ -470,12 +433,11 @@ function MixtapeCtrl($log, $http, $filter) {
     findAllByArtist(self.all[index]);
 
     self.normalized = true;
-
-
   }
 
+  // find all the mixtapes by a single artist for the graph
   function findAllByArtist(currentCover) {
-    // console.log(currentCover);
+
     var artist = currentCover.artist;
 
     var allByArtist = [];
@@ -512,6 +474,7 @@ function MixtapeCtrl($log, $http, $filter) {
     self.current.allByArtist = allByArtist;
   }
 
+  // find all mixtapes that have a similar complexity score
   function findSimilarByComplex(currentCover) {
 
     var allCovers = self.all;
@@ -539,13 +502,12 @@ function MixtapeCtrl($log, $http, $filter) {
     var similarCoverArr = [];
 
     similarComplex.forEach(function (coverObj) {
-      // console.log(coverObj.color);
+
       var similarComplexArr = coverObj.color;
       var currentCoverArr = currentCover.color;
 
       var similarCover = {matches: 0, id: null, score: 0};
 
-      // similarCover.diff = similarComplexArr.diff(currentCoverArr).length;
       var similarities = count_similarities(similarComplexArr, currentCoverArr);
 
       similarCover.matches = similarities;
