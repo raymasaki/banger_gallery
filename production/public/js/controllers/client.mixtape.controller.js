@@ -142,7 +142,7 @@ function MixtapeCtrl($log, $http, $filter) {
   getCovers();
 
   function getCovers() {
-    console.log('getCovers');
+
     $http
       .get('/covers')
       .then(function(res) {
@@ -178,8 +178,6 @@ function MixtapeCtrl($log, $http, $filter) {
       var currScore = self.all[index].score;
 
       self.all[index].score = 100 - Math.ceil(((currScore - scoreMin) / (scoreMax - scoreMin)) * 100);
-
-      console.log(self.all[index].score);
 
     });
   }
@@ -419,7 +417,6 @@ function MixtapeCtrl($log, $http, $filter) {
 
   // instantiates all the data for the modal
   function showModal(index) {
-    self.showDetail = true;
 
     self.current.similar = [];
 
@@ -544,6 +541,10 @@ function MixtapeCtrl($log, $http, $filter) {
         self.current.similar.push(self.all[parseInt(similarCoverArr[j].id)]);
       }
     }
+
+    self.showDetail = true;
+
+    angular.element('.details')[0].scrollTop = 0;
 
   }
 

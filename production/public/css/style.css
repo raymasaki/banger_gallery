@@ -163,7 +163,7 @@ span.filter-artist, .logo-small {
 
 .about-link {
   float: right;
-  margin-top: -44px;
+  margin-top: -36px;
   padding-right: 8px;
 }
 
@@ -259,13 +259,13 @@ span.filter-artist, .logo-small {
   cursor: pointer;
 }
 
-.modal > .details > a.close {
+.details > .details-top > a.close {
   position: absolute;
   top: 0;
   right: 0;
 }
 
-.modal > .details > img {
+.details > .details-top > img {
   float: left;
   padding-right: 32px;
   width: 300px;
@@ -274,7 +274,7 @@ span.filter-artist, .logo-small {
 .modal > .details > .color-bar {
   float: left;
   width: 100%;
-  margin-top: 32px;
+  clear: both;
 }
 
 .modal > .details > .color-bar-similar {
@@ -289,7 +289,7 @@ span.filter-artist, .logo-small {
 }
 
 .similar-cover {
-  margin: 16px 16px 0 0;
+  margin: 0 16px 0 0;
 }
 
 .similar-cover > img {
@@ -316,7 +316,10 @@ span.filter-artist, .logo-small {
 }
 
 .complexity-graph {
-  margin-top: 32px;
+  clear: both;
+}
+
+.graph {
   float: left;
   clear: both;
   width: 100%;
@@ -326,24 +329,25 @@ span.filter-artist, .logo-small {
   padding: 32px 24px 24px 24px;
 }
 
-.complexity-graph .dot {
+.graph .dot {
   width: 16px;
   height: 16px;
   border-radius: 50%;
   box-shadow: 0 1px 4px rgba(0,0,0,.3);
   left: 50%;
   margin-left: -8px;
+  z-index: 100;
 }
 
-.complexity-graph .score {
+.graph .score {
   opacity: 0;
 }
 
-.complexity-graph .dot:hover .score {
+.graph .dot:hover .score {
   opacity: 1;
 }
 
-.complexity-graph .year {
+.graph .year {
   text-align: center;
   width: 100%;
   font-size: 14px;
@@ -353,6 +357,9 @@ span.filter-artist, .logo-small {
   margin-left: -8px;
 }
 
+.color-bar h3, .similar h3, .complexity-graph h3 {
+  padding: 32px 0 16px 0;
+}
 
 
 /***************** MEDIA QUERIES *****************/

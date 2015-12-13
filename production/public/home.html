@@ -4,22 +4,26 @@
 
   <div class="details" ng-show="mixtapes.showDetail" onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';">
 
-    <a ng-click="mixtapes.showDetail = false" class="close">X</a>
+    <div class="details-top">
+      <a ng-click="mixtapes.showDetail = false" class="close">X</a>
 
-    <img ng-src="{{mixtapes.current.thumb_image}}" alt="{{mixtapes.current.title}}">
-    <h2><a ng-click="artistFilter = {artist: mixtapes.current.artist}; mixtapes.showDetail = false; mixtapes.currArtist = mixtapes.current.artist;">{{mixtapes.current.artist}}</a></h2>
-    <h2><a ng-href="{{mixtapes.current.link}}" target="_blank">{{mixtapes.current.title}}</a></h2>
-    <p class="small">Downloads: {{mixtapes.current.downloads | number : fractionSize}}</p>
-    <p class="small">Location: {{mixtapes.current.city}}, {{mixtapes.current.state}}</p>
-    <p class="small">Release Date: {{mixtapes.current.month}}-{{mixtapes.current.day}}-{{mixtapes.current.year}}</p>
-    <h3>Score: {{mixtapes.current.score}} / 100</h3>
+      <img ng-src="{{mixtapes.current.thumb_image}}" alt="{{mixtapes.current.title}}">
+      <h2><a ng-click="artistFilter = {artist: mixtapes.current.artist}; mixtapes.showDetail = false; mixtapes.currArtist = mixtapes.current.artist;">{{mixtapes.current.artist}}</a></h2>
+      <h2><a ng-href="{{mixtapes.current.link}}" target="_blank">{{mixtapes.current.title}}</a></h2>
+      <p class="small">Downloads: {{mixtapes.current.downloads | number : fractionSize}}</p>
+      <p class="small">Location: {{mixtapes.current.city}}, {{mixtapes.current.state}}</p>
+      <p class="small">Release Date: {{mixtapes.current.month}}-{{mixtapes.current.day}}-{{mixtapes.current.year}}</p>
+      <h3>Score: {{mixtapes.current.score}} / 100</h3>
+    </div>
 
     <div class="color-bar">
+      <h3 class="small">{{mixtapes.current.title}}'s Color Spread</h3>
       <div class="color-spread" ng-repeat="color in mixtapes.current.colors" style="background: {{color.hexVal}}; width: {{color.percentage * 100}}%"></div>
     </div>
 
 
     <div class="similar">
+      <h3 class="small">Visually Related Covers</h3>
       <div class="similar-cover" ng-repeat="similar in mixtapes.current.similar">
         <img ng-src="{{similar.thumb_image}} "ng-click="mixtapes.showModal(similar._id)">
 
@@ -31,12 +35,17 @@
     </div>
 
     <div class="complexity-graph">
-      <div class="complexity-score" ng-repeat="mixtape in mixtapes.current.allByArtist" style="width: {{100 / mixtapes.current.allByArtist.length}}%; float: left; position: relative; height: 100%;">
+      <h3 class="small">{{mixtapes.current.artist}}'s Cover Complexity Over Time</h3>
 
-        <div class="dot" style="background: {{mixtape.colorAll[0].hex}}; position: absolute; bottom: {{mixtape.score}}%"><span class="score">{{mixtape.score}}</span></div>
+      <div class="graph">
+        <div class="complexity-score" ng-repeat="mixtape in mixtapes.current.allByArtist" style="width: {{100 / mixtapes.current.allByArtist.length}}%; float: left; position: relative; height: 100%;">
 
-        <span class="year small">{{mixtape.year}}</span>
+          <div class="dot" style="background: {{mixtape.colorAll[0].hex}}; position: absolute; bottom: {{mixtape.score}}%"><span class="score">{{mixtape.score}}</span></div>
+
+          <span class="year small">{{mixtape.year}}</span>
+        </div>
       </div>
+
     </div>
 
   </div>
