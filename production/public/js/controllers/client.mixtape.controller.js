@@ -142,6 +142,7 @@ function MixtapeCtrl($log, $http, $filter) {
   getCovers();
 
   function getCovers() {
+    console.log('getCovers');
     $http
       .get('/covers')
       .then(function(res) {
@@ -157,10 +158,30 @@ function MixtapeCtrl($log, $http, $filter) {
         }
 
         self.all = coverData;
+
+        normalize();
       })
       .catch(function(res) {
         $log.error('failure', res);
       });
+
+  }
+
+
+  function normalize() {
+    var allCovers = self.all;
+
+    allCovers.forEach( function(cover, index) {
+
+      var scoreMin = 15;
+      var scoreMax = 136;
+      var currScore = self.all[index].score;
+
+      self.all[index].score = 100 - Math.ceil(((currScore - scoreMin) / (scoreMax - scoreMin)) * 100);
+
+      console.log(self.all[index].score);
+
+    });
   }
 
 
@@ -412,14 +433,7 @@ function MixtapeCtrl($log, $http, $filter) {
     self.current.thumb_image = self.all[index].thumb_image;
     self.current.complexity = self.all[index].colorAll;
     self.current.count = self.all[index].colorCount;
-
-    // normalize complexity score out of 100
-    var scoreMin = 15;
-    var scoreMax = 136;
-    var currScore = self.all[index].score;
-
-    self.current.score = 100 - Math.ceil(((currScore - scoreMin) / (scoreMax - scoreMin)) * 100);
-
+    self.current.score = self.all[index].score;
 
     // color spread
     var colorArr = self.all[index].analysis.clusters;
@@ -431,8 +445,6 @@ function MixtapeCtrl($log, $http, $filter) {
 
     findSimilarByComplex(self.all[index]);
     findAllByArtist(self.all[index]);
-
-    self.normalized = true;
   }
 
   // find all the mixtapes by a single artist for the graph
@@ -446,14 +458,6 @@ function MixtapeCtrl($log, $http, $filter) {
 
     allCovers.forEach( function(cover, index) {
       if (cover.artist === artist) {
-
-        if (self.normalized === false) {
-          var scoreMin = 15;
-          var scoreMax = 136;
-          var currScore = self.all[index].score;
-
-          self.all[index].score = 100 - Math.ceil(((currScore - scoreMin) / (scoreMax - scoreMin)) * 100);
-        }
 
         allByArtist.push(self.all[index]);
 
