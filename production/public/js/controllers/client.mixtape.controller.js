@@ -380,6 +380,7 @@ function MixtapeCtrl($log, $http, $filter) {
     day: null,
     month: null,
     year: null,
+    link: null,
     thumb_image: null,
     colors: [{
       hexVal: '',
@@ -430,6 +431,7 @@ function MixtapeCtrl($log, $http, $filter) {
     self.current.day = self.all[index].day;
     self.current.month = self.all[index].month;
     self.current.year = self.all[index].year;
+    self.current.link = self.all[index].link;
     self.current.thumb_image = self.all[index].thumb_image;
     self.current.complexity = self.all[index].colorAll;
     self.current.count = self.all[index].colorCount;

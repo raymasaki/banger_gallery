@@ -1,6 +1,9 @@
 /***************** GLOBAL *****************/
 
 
+@import url(https://fonts.googleapis.com/css?family=Inconsolata);
+
+
 body {
   font-family: helvetica, sans-serif;
   background: #F7F9F8;
@@ -11,6 +14,16 @@ body {
 .container {
   max-width: 1400px;
   margin: 0 auto;
+}
+
+.small {
+  font-size: 14px;
+  line-height: 16px;
+  font-family: 'Inconsolata', monospace;
+}
+
+.modal .small {
+  line-height: 23px;
 }
 
 /***************** FILTER *****************/
@@ -26,8 +39,6 @@ ul.color-filter.visible, ul.state-filter.visible, .artist-filter.visible {
 
 ul.filter-type {
   display: flex;
-  font-size: 14px;
-  line-height: 16px;
 }
 
 ul.filter-type > li {
