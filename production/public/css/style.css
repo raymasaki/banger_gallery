@@ -29,13 +29,22 @@ body {
 /***************** FILTER *****************/
 
 
-ul.color-filter.hidden, ul.state-filter.hidden, .artist-filter.hidden {
+/*ul.color-filter.hidden, ul.state-filter.hidden, .artist-filter.hidden {
   display: none;
 }
 
 ul.color-filter.visible, ul.state-filter.visible, .artist-filter.visible {
   display: block;
+}*/
+
+.artist-filter.hidden {
+  display: none;
 }
+
+.artist-filter.visible {
+  display: block;
+}
+
 
 ul.filter-type {
   display: flex;
@@ -47,10 +56,12 @@ ul.filter-type > li {
   text-align: center;
   cursor: pointer;
   padding-top: 8px;
+  transition: all 200ms ease-out;
 }
 
 ul.filter-type > li:hover {
   background: #ECEFF1;
+  transition: all 200ms ease-out;
 }
 
 ul.filter-type {
@@ -65,6 +76,22 @@ ul.filter-type {
   margin: 0 0 0 -177px;
 }
 
+.sort.hidden {
+  opacity: 0;
+  transition: 0ms all;
+}
+
+.sort {
+  opacity: 1;
+  transition: 250ms all;
+  transition-delay: 100ms;
+  padding: 16px;
+}
+
+.sort > li.small {
+  padding-bottom: 8px;
+}
+
 .sort-button {
   width: 48px;
   height: 48px;
@@ -75,18 +102,26 @@ ul.filter-type {
   right: 24px;
   bottom: 24px;
   z-index: 100;
-}
-
-.sort.hidden {
-  display: none;
+  transition: 150ms all cubic-bezier(.08,.69,.38,1);
 }
 
 .sort-button.active {
   width: 208px;
   height: 260px;
+  right: 32px;
+  bottom: 32px;
   background: #FFFFFF;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.40);
   border-radius: 0;
+  transition: 200ms all cubic-bezier(.39,.09,.17,1);
+}
+
+.sort-button.active .sort-icon {
+  display: none;
+}
+
+.sort-icon {
+  padding: 12px 0 0 12px;
 }
 
 ul.color-filter, ul.state-filter {
@@ -95,11 +130,30 @@ ul.color-filter, ul.state-filter {
   background: #FFFFFF;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.40);
   overflow-y: scroll;
+  opacity: 1;
+  padding: 16px;
 
   position: fixed;
   top: 80px;
   left: 50%;
   z-index: 100;
+
+  transition: 200ms all cubic-bezier(.39,.09,.17,1);
+}
+
+ul.color-filter.hidden, ul.state-filter.hidden {
+  width: 208px;
+  height: 60px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.40);
+  opacity: 0;
+
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  z-index: 100;
+
+
+  transition: 150ms all cubic-bezier(.08,.69,.38,1);
 }
 
 ul.color-filter {
@@ -213,7 +267,13 @@ span.filter-artist, .logo-small {
 .fade {
   height: 120px;
   width: 100%;
-  background-image: linear-gradient(-180deg, rgba(255,255,255,0.00) 0%, #F7F9F8 100%);
+  background-image:
+    linear-gradient( 180deg,
+      rgba(247, 248, 297, 0) 15%,
+      rgba(247, 248, 297, 0.3) 50%,
+      rgba(247, 248, 297, 0.75) 82.5%,
+      rgba(247, 248, 297, 0.9) 92.5%,
+      rgba(247, 248, 297, 1) 100%);
   position: fixed;
   bottom: 0;
   z-index: 50;
@@ -326,7 +386,7 @@ span.filter-artist, .logo-small {
   background: #ECEFF1;
   height: 240px;
   box-sizing: border-box;
-  padding: 32px 24px 24px 24px;
+  padding: 32px 24px 16px 24px;
 }
 
 .graph .dot {
@@ -336,15 +396,21 @@ span.filter-artist, .logo-small {
   box-shadow: 0 1px 4px rgba(0,0,0,.3);
   left: 50%;
   margin-left: -8px;
-  z-index: 100;
+  z-index: 150;
 }
 
 .graph .score {
   opacity: 0;
+  position: absolute;
+  text-align: center;
+  top: -14px;
+  transition: all 200ms ease-in-out;
 }
 
-.graph .dot:hover .score {
+.complexity-score:hover .dot .score {
   opacity: 1;
+  top: -28px;
+  transition: all 200ms cubic-bezier(.08,.69,.38,1);
 }
 
 .graph .year {
@@ -353,8 +419,7 @@ span.filter-artist, .logo-small {
   font-size: 14px;
   position: absolute;
   bottom: 0;
-  transform: rotateZ(-36deg);
-  margin-left: -8px;
+  color: #B0BEC5;
 }
 
 .color-bar h3, .similar h3, .complexity-graph h3 {

@@ -14,6 +14,7 @@ function MixtapeCtrl($log, $http, $filter) {
   self.selectedArtist = function(selected) {
     self.currArtist = selected.originalObject.name;
   };
+  
 
   self.artistFilterOpen = false;
 
@@ -115,6 +116,7 @@ function MixtapeCtrl($log, $http, $filter) {
       angular.element('.sort').addClass('visible');
       angular.element('.sort-button').addClass('active');
       self.sortOpen = true;
+
 
       angular.element('.state-filter').removeClass('visible');
       angular.element('.state-filter').addClass('hidden');
@@ -418,6 +420,8 @@ function MixtapeCtrl($log, $http, $filter) {
   // instantiates all the data for the modal
   function showModal(index) {
 
+    angular.element('.details')[0].scrollTop = 0;
+
     self.current.similar = [];
 
     self.current.artist = self.all[index].artist;
@@ -543,8 +547,6 @@ function MixtapeCtrl($log, $http, $filter) {
     }
 
     self.showDetail = true;
-
-    angular.element('.details')[0].scrollTop = 0;
 
   }
 
