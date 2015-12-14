@@ -185,7 +185,9 @@
 
 <a class="about-link small" ui-sref="about">What is this?</a>
 
-<div class="grid-cover"></div>
+<div class="grid-cover">
+  <h1 class="logo-big">BANGER GALLERY</h1>
+</div>
   <ul class="grid" masonry="true">
 
     <li class="grid-item" ng-repeat="mixtape in mixtapes.all | filter: artistFilter | filter: colorFilter | filter: stateFilter | orderBy: order" style="background: {{mixtape.analysis.clusters[1].hex[0]}};">
