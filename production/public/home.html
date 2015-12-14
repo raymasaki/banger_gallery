@@ -185,10 +185,11 @@
 
 <a class="about-link small" ui-sref="about">What is this?</a>
 
-<ul class="grid" masonry="true">
+<div class="grid-cover"></div>
+  <ul class="grid" masonry="true">
 
-  <li class="grid-item" ng-repeat="mixtape in mixtapes.all | filter: artistFilter | filter: colorFilter | filter: stateFilter | orderBy: order" style="background: {{mixtape.analysis.clusters[1].hex[0]}};">
-    <img img-fade-in-onload="{{mixtape.thumb_image}}" alt="{{mixtape.title}}" ng-click="mixtapes.showModal(mixtape._id)" src="">
-  </li>
+    <li class="grid-item" ng-repeat="mixtape in mixtapes.all | filter: artistFilter | filter: colorFilter | filter: stateFilter | orderBy: order" style="background: {{mixtape.analysis.clusters[1].hex[0]}};">
+      <img img-fade-in-onload="{{mixtape.thumb_image}}" alt="{{mixtape.title}}" ng-click="mixtapes.showModal(mixtape._id)" src="">
+    </li>
 
-</ul>
+  </ul>

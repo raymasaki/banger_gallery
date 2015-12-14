@@ -14,7 +14,7 @@ function MixtapeCtrl($log, $http, $filter) {
   self.selectedArtist = function(selected) {
     self.currArtist = selected.originalObject.name;
   };
-  
+
 
   self.artistFilterOpen = false;
 
@@ -162,11 +162,22 @@ function MixtapeCtrl($log, $http, $filter) {
         self.all = coverData;
 
         normalize();
+        fadeInPage();
       })
       .catch(function(res) {
         $log.error('failure', res);
       });
 
+  }
+
+  function fadeInPage() {
+    angular.element('.grid-cover').velocity({
+      opacity: 0
+    }, {
+      duration: '1000ms',
+      delay: '1500ms',
+      easing: [0.31, 0.32, 0.22,1]
+    });
   }
 
 

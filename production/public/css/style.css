@@ -11,6 +11,20 @@ body {
   line-height: 32px;
 }
 
+a {
+  text-decoration: none;
+}
+
+.grid-cover {
+  opacity: 1;
+  background: #F7F9F8;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  pointer-events: none;
+}
+
 .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -26,28 +40,32 @@ body {
   line-height: 23px;
 }
 
+.about-link {
+  float: right;
+  margin-top: -36px;
+  padding-right: 8px;
+}
+
+
 /***************** FILTER *****************/
 
-
-/*ul.color-filter.hidden, ul.state-filter.hidden, .artist-filter.hidden {
-  display: none;
-}
-
-ul.color-filter.visible, ul.state-filter.visible, .artist-filter.visible {
-  display: block;
-}*/
-
-.artist-filter.hidden {
-  display: none;
-}
-
-.artist-filter.visible {
-  display: block;
-}
-
+/* Global Styles */
 
 ul.filter-type {
   display: flex;
+  transform: translateY(-160px);
+  animation: slideTop 1000ms cubic-bezier(.07,.56,.4,1);
+  animation-delay: 1000ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideTop {
+  from {
+    transform: translateY(-160px);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 ul.filter-type > li {
@@ -70,15 +88,18 @@ ul.filter-type {
   height: 32px;
   box-shadow: 0 8px 16px rgba(0,0,0,.4);
   position: fixed;
-  z-index: 100;
+  z-index: 200;
   top: 32px;
   left: 50%;
   margin: 0 0 0 -177px;
 }
 
+/* Sort button */
+
 .sort.hidden {
   opacity: 0;
   transition: 0ms all;
+  pointer-events: none;
 }
 
 .sort {
@@ -101,8 +122,22 @@ ul.filter-type {
   position: fixed;
   right: 24px;
   bottom: 24px;
-  z-index: 100;
+  z-index: 300;
   transition: 150ms all cubic-bezier(.08,.69,.38,1);
+  transform: translateX(90px);
+
+  animation: slideRight 600ms cubic-bezier(.07,.56,.4,1);
+  animation-delay: 1500ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(90px);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 .sort-button.active {
@@ -124,6 +159,8 @@ ul.filter-type {
   padding: 12px 0 0 12px;
 }
 
+/* Color/State Filter */
+
 ul.color-filter, ul.state-filter {
   width: 208px;
   height: 260px;
@@ -132,6 +169,7 @@ ul.color-filter, ul.state-filter {
   overflow-y: scroll;
   opacity: 1;
   padding: 16px;
+  pointer-events: auto;
 
   position: fixed;
   top: 80px;
@@ -146,6 +184,7 @@ ul.color-filter.hidden, ul.state-filter.hidden {
   height: 60px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.40);
   opacity: 0;
+  pointer-events: none;
 
   position: fixed;
   top: 80px;
@@ -164,6 +203,8 @@ ul.state-filter {
   margin: 0 0 0 -104px;
 }
 
+/* Artist Filter */
+
 .artist-filter {
   background: #FFFFFF;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.40);
@@ -175,6 +216,20 @@ ul.state-filter {
   width: 498px;
   height: 48px;
   margin: 0 0 0 -249px;
+}
+
+.artist-filter.visible {
+  opacity: 1;
+  pointer-events: auto;
+
+  transition: 200ms all cubic-bezier(.39,.09,.17,1);
+}
+
+.artist-filter.hidden {
+  opacity: 0;
+  pointer-events: none;
+
+  transition: 150ms all cubic-bezier(.08,.69,.38,1);
 }
 
 .angucomplete-holder > input {
@@ -215,27 +270,36 @@ span.filter-artist, .logo-small {
   padding-left: 8px;
 }
 
-.about-link {
-  float: right;
-  margin-top: -36px;
-  padding-right: 8px;
-}
 
 /***************** GRID *****************/
 
 
 .gradient {
-  background-image: linear-gradient(90deg, #3023AE 0%, #D341C7 25%, #53A0FD 50%, #C0CB8A 75%, #B4EC51 100%);
-  width: 100%;
-  height: 16px;
+  background-image: linear-gradient(-90deg, #4927B1 0%, #BB52D1 9%, #58A2F8 18%, #AEC49D 27%, #B6E957 36%, #AEC49D 45%, #58A2F8 54%, #BB52D1 63%, #4927B1 72%, #BB52D1 81%, #58A2F8 90%, #AEC49D 100%);
+
+  width: 600%;
+  height: 12px;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
+
+  animation: color 30000ms linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+
+@keyframes color {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -440%;
+  }
 }
 
 .grid {
-  margin: 80px 0 120px 0;
+  margin: 80px 0 80px 0;
   padding: 0;
 }
 
@@ -245,7 +309,13 @@ span.filter-artist, .logo-small {
   font-size: 12px;
   padding: 2px;
   margin: 8px;
+  transition: box-shadow 300ms ease-out;
   box-shadow: 0 1px 10px rgba(0,0,0,.3);
+}
+
+.grid-item:hover {
+  transition: box-shadow 200ms ease-out;
+  box-shadow: 0 3px 10px rgba(0,0,0,.5);
 }
 
 .grid-item > img {
@@ -283,6 +353,7 @@ span.filter-artist, .logo-small {
 
 /***************** DETAIL MODAL *****************/
 
+/* Global */
 
 .modal {
   position: fixed;
@@ -319,17 +390,23 @@ span.filter-artist, .logo-small {
   cursor: pointer;
 }
 
+/* Close Button */
+
 .details > .details-top > a.close {
   position: absolute;
   top: 0;
   right: 0;
 }
 
+/* Top Section */
+
 .details > .details-top > img {
   float: left;
   padding-right: 32px;
   width: 300px;
 }
+
+/* Color Bar */
 
 .modal > .details > .color-bar {
   float: left;
@@ -347,6 +424,8 @@ span.filter-artist, .logo-small {
   float: left;
   height: 32px;
 }
+
+/* Similar Covers */
 
 .similar-cover {
   margin: 0 16px 0 0;
@@ -374,6 +453,8 @@ span.filter-artist, .logo-small {
   cursor: crosshair;
   width: 208px;
 }
+
+/* Complexity Graph */
 
 .complexity-graph {
   clear: both;
@@ -447,7 +528,6 @@ span.filter-artist, .logo-small {
 
 
 /***************** TRANSITIONS *****************/
-
 
 
 .masonry .masonry-enter { /* limit animated properties for entering elements */
