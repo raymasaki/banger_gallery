@@ -14,13 +14,6 @@
 - Stretch:
   - Clusters are organized by minimal to complex (i.e. minimal yellow to complex yellow)
 
-## Tooltip
-- User can hover over the cover to get a tooltip with:
-  - Artist
-  - Title
-  - City, State
-  - Number of downloads
-
 ## Detail Page
 - User can click on a single cover to access an overlay of the mixtape detail page with:
   - Material transition grow of artwork thumb to overlay
@@ -46,7 +39,7 @@
       - If the overall number of colors is large and all values have even low percentages, the cover is complex
 
 ## Color Rounding
-- Users can only select from 15 colors, so the color analysis needs to be able to bucket an RGB value into the 15 values.
+- Users can only select from 18 colors, so the color analysis needs to be able to bucket an RGB value into the 18 values.
 - Approach:
   - Round each R, G, B value to either 0, 125, or 255 (12 total combinations)
   - If the values are 0, 0, 0 then the color is black
@@ -103,3 +96,9 @@
 - [Frightgeist](https://frightgeist.withgoogle.com/): Data visualization of Halloween costume Google searches
 - [Most Successful Labels](http://poly-graph.co/labels/): Data vis of most successful hip-hop labels by year
 - [Predominant.ly](http://predominant.ly/): Album covers by color-picker
+
+### Known Bugs / Unresolved Problems
+- Bug: If you search for artists like YG or Lil B results with those characters will show e.g. T'yg'a or 'Lil B'oosie
+- Bug: Artist search only works on keypress 'enter', it should work on click as well
+- Improvement: Hide the scrollbars for overflow elements
+- Improvement: When a detail modal is open, the URL route should update
