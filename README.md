@@ -57,18 +57,16 @@
 
 ## Wireframes
 
-#### Home
-![Banger Gallery 1](http://i.imgur.com/9F7B3X7.png)
-#### Filter
-![Banger Gallery 2](http://i.imgur.com/7lq7S6c.png)
-#### Filtered View
-![Banger Gallery 3](http://i.imgur.com/fBycEVc.png)
-#### Search Artist
-![Banger Gallery 4](http://i.imgur.com/IfbxbRc.png)
-#### Filtered Artist
-![Banger Gallery 5](http://i.imgur.com/tipeQkl.png)
+#### Color Filter
+![Banger Gallery 1](http://i.imgur.com/TQiLN5n.png)
+#### Location Filter
+![Banger Gallery 2](http://i.imgur.com/xIMOR7y.png)
+#### Artist Search
+![Banger Gallery 3](http://i.imgur.com/Cl1OtPE.png)
+#### Sorting
+![Banger Gallery 4](http://i.imgur.com/UxvVicw.png)
 #### Detail Modal
-![Banger Gallery 6](http://i.imgur.com/LeizYwk.png)
+![Banger Gallery 5](http://i.imgur.com/IUGRSw5.png)
 
 ## Research
 - Wireframes
