@@ -520,8 +520,23 @@ span.filter-artist {
   opacity: 0;
 }
 
+.download-link {
+  margin-left: -16px;
+  opacity: 0;
+  color: #B0BEC5;
+
+  transition: all 200ms ease-in-out;
+}
+
+.cover-title:hover .download-link {
+  margin-left: 4px;
+  opacity: 1;
+
+  transition: all 200ms cubic-bezier(.08,.69,.38,1);
+}
+
 .cover-title {
-  padding-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .cover-title a {

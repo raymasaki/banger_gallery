@@ -16,7 +16,13 @@
 
       <img ng-src="{{mixtapes.current.thumb_image}}" alt="{{mixtapes.current.title}}">
       <h2 class="cover-artist"><a ng-click="artistFilter = {artist: mixtapes.current.artist}; mixtapes.showDetail = false; mixtapes.currArtist = mixtapes.current.artist;">{{mixtapes.current.artist}}</a></h2>
-      <h2 class="cover-title"><a ng-href="{{mixtapes.current.link}}" target="_blank">{{mixtapes.current.title}}</a></h2>
+
+      <h2 class="cover-title">
+        <a ng-href="{{mixtapes.current.link}}" target="_blank">{{mixtapes.current.title}}
+        <span class="download-link small">Download</span>
+        </a>
+      </h2>
+
       <p class="small">Release Date: {{mixtapes.current.month}}-{{mixtapes.current.day}}-{{mixtapes.current.year}}</p>
       <p class="small">Location: {{mixtapes.current.city}}, {{mixtapes.current.state}}</p>
       <p class="small downloads">Downloads: {{mixtapes.current.downloads | number : fractionSize}}</p>

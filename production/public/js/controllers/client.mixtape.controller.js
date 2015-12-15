@@ -174,6 +174,8 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
     }
   };
 
+
+  // hides filters and sort if they're open and the screen is clicked
   self.filterReset = function() {
     angular.element('.sort').removeClass('visible');
     angular.element('.sort-button').removeClass('active');
