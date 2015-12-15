@@ -475,12 +475,17 @@ span.filter-artist, .logo-small {
   width: 300px;
 }
 
+.details-top {
+  opacity: 0;
+}
+
 /* Color Bar */
 
 .modal > .details > .color-bar {
   float: left;
   width: 100%;
   clear: both;
+  opacity: 0;
 }
 
 .modal > .details > .color-bar-similar {
@@ -512,6 +517,7 @@ span.filter-artist, .logo-small {
 
 .modal > .details > .similar {
   clear: both;
+  opacity: 0;
 }
 
 .modal > .details > .similar > .similar-cover {
@@ -523,10 +529,56 @@ span.filter-artist, .logo-small {
   width: 208px;
 }
 
+
+.fadein0 {
+  animation: fadeInUp 500ms cubic-bezier(.01,.68,.2,1);
+  animation-fill-mode: forwards;
+  animation-delay: 300ms;
+
+  transform: translateY(70px);
+}
+
+.fadein150 {
+  animation: fadeInUp 500ms cubic-bezier(.01,.68,.2,1);
+  animation-fill-mode: forwards;
+  animation-delay: 450ms;
+
+  transform: translateY(70px);
+}
+
+.fadein300 {
+  animation: fadeInUp 500ms cubic-bezier(.01,.68,.2,1);
+  animation-fill-mode: forwards;
+  animation-delay: 600ms;
+
+  transform: translateY(70px);
+}
+
+.fadein450 {
+  animation: fadeInUp 500ms cubic-bezier(.01,.68,.2,1);
+  animation-fill-mode: forwards;
+  animation-delay: 750ms;
+
+  transform: translateY(70px);
+}
+
+@keyframes fadeInUp {
+  0%{
+    opacity: 0;
+    transform: translateY(70px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+
 /* Complexity Graph */
 
 .complexity-graph {
   clear: both;
+  opacity: 0;
 }
 
 .graph {
@@ -573,7 +625,7 @@ span.filter-artist, .logo-small {
   height: 24px;
   border-radius: 50%;
   float: left;
-  border: 1px solid red;
+  border: 1px solid #4D4C4C;
   margin: -5px 0 0 -5px;
 
   animation: pulse 2500ms cubic-bezier(.09,.67,.3,1);

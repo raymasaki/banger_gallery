@@ -1,6 +1,6 @@
-app.controller('MixtapeCtrl', ['$log', '$http', '$filter', MixtapeCtrl]);
+app.controller('MixtapeCtrl', ['$log', '$http', '$filter', '$timeout', MixtapeCtrl]);
 
-function MixtapeCtrl($log, $http, $filter) {
+function MixtapeCtrl($log, $http, $filter, $timeout) {
 
   var self = this;
   self.all = [];
@@ -39,6 +39,7 @@ function MixtapeCtrl($log, $http, $filter) {
       self.stateFilterOpen = false;
 
       angular.element('.sort').removeClass('visible');
+      angular.element('.sort-button').removeClass('active');
       angular.element('.sort').addClass('hidden');
       self.sortOpen = false;
 
@@ -68,6 +69,7 @@ function MixtapeCtrl($log, $http, $filter) {
       self.artistFilterOpen = false;
 
       angular.element('.sort').removeClass('visible');
+      angular.element('.sort-button').removeClass('active');
       angular.element('.sort').addClass('hidden');
       self.sortOpen = false;
 
@@ -97,6 +99,7 @@ function MixtapeCtrl($log, $http, $filter) {
       self.artistFilterOpen = false;
 
       angular.element('.sort').removeClass('visible');
+      angular.element('.sort-button').removeClass('active');
       angular.element('.sort').addClass('hidden');
       self.sortOpen = false;
     } else {
@@ -422,6 +425,11 @@ function MixtapeCtrl($log, $http, $filter) {
   function showModal(index) {
 
     angular.element('.details')[0].scrollTop = 0;
+
+    angular.element('.details-top').addClass('fadein0');
+    angular.element('.color-bar').addClass('fadein150');
+    angular.element('.similar').addClass('fadein300');
+    angular.element('.complexity-graph').addClass('fadein450');
 
     self.current.similar = [];
 
