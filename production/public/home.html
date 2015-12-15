@@ -25,7 +25,7 @@
     <div class="similar">
       <h3 class="small">Visually Related Covers</h3>
       <div class="similar-cover" ng-repeat="similar in mixtapes.current.similar">
-        <img ng-src="{{similar.thumb_image}} "ng-click="mixtapes.showModal(similar._id)">
+        <img ng-src="{{similar.thumb_image}}" ng-click="mixtapes.showModal(similar._id)">
 
         <div class="color-bar-similar">
           <div class="color-spread-similar" ng-repeat="color in similar.colorAll" style="background: {{color.hex}}; width: {{color.percent * 100}}%;"></div>
@@ -40,7 +40,10 @@
       <div class="graph">
         <div class="complexity-score" ng-repeat="mixtape in mixtapes.current.allByArtist" style="width: {{100 / mixtapes.current.allByArtist.length}}%; float: left; position: relative; height: 100%;">
 
-          <div class="dot" style="background: {{mixtape.colorAll[0].hex}}; position: absolute; bottom: {{mixtape.score}}%"><span class="score small">{{mixtape.score}}</span></div>
+          <div class="dot" ng-class="{currentdot: mixtape._id === mixtapes.current.id}" style="position: absolute; bottom: {{mixtape.score}}%" ng-click="mixtapes.showModal(mixtape._id)">
+            <span class="ring"></span>
+            <span class="score small">{{mixtape.score}}</span>
+          </div>
 
           <span class="year small">{{mixtape.year}}</span>
         </div>

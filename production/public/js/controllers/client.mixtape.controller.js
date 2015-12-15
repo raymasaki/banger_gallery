@@ -372,6 +372,7 @@ function MixtapeCtrl($log, $http, $filter) {
   //=============================================//
 
   self.current = {
+    id: null,
     artist: null,
     title: null,
     downloads: null,
@@ -424,6 +425,7 @@ function MixtapeCtrl($log, $http, $filter) {
 
     self.current.similar = [];
 
+    self.current.id = self.all[index]._id;
     self.current.artist = self.all[index].artist;
     self.current.title = self.all[index].title;
     self.current.downloads = self.all[index].downloads;

@@ -45,7 +45,7 @@ a {
   font-size: 60px;
   line-height: 68px;
   letter-spacing: 25px;
-  transform: translateY(45%);
+  transform: translateY(42%);
   height: 100%;
 
   animation: fadeOut 200ms cubic-bezier(0.31, 0.32, 0.22,1);
@@ -164,7 +164,7 @@ ul.filter-type {
   transform: translateX(90px);
   cursor: pointer;
 
-  animation: slideRight 400ms cubic-bezier(.07,.56,.4,1);
+  animation: slideRight 400ms cubic-bezier(.09,.67,.3,1);
   animation-delay: 1800ms;
   animation-fill-mode: forwards;
 }
@@ -219,7 +219,7 @@ ul.color-filter, ul.state-filter {
   left: 50%;
   z-index: 100;
 
-  transition: 150ms all cubic-bezier(.39,.09,.17,1);
+  transition: 150ms all cubic-bezier(.09,.67,.3,1);
 }
 
 ul.color-filter.hidden, ul.state-filter.hidden {
@@ -244,6 +244,7 @@ ul.color-filter {
 
 ul.state-filter {
   margin: 0 0 0 -104px;
+  padding-right: 20px;
 }
 
 /* Artist Filter */
@@ -359,8 +360,8 @@ span.filter-artist, .logo-small {
 }
 
 .grid-item:hover {
-  transition: box-shadow 200ms ease-out;
-  box-shadow: 0 3px 10px rgba(0,0,0,.5);
+  transition: box-shadow 150ms ease-out;
+  box-shadow: 0 3px 10px rgba(0,0,0,.55);
 }
 
 .grid-item > img {
@@ -542,10 +543,57 @@ span.filter-artist, .logo-small {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  box-shadow: 0 1px 4px rgba(0,0,0,.3);
   left: 50%;
   margin-left: -8px;
   z-index: 150;
+  cursor: pointer;
+}
+
+.dot {
+  background: #B0BEC5;
+}
+
+.dot.currentdot {
+  background: #4D4C4C;
+  box-shadow: 0 1px 4px rgba(0,0,0,.3);
+  opacity: 1;
+}
+
+.dot .ring{
+  display: none;
+}
+
+.dot.currentdot .ring{
+  display: block;
+}
+
+.ring {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  float: left;
+  border: 1px solid red;
+  margin: -5px 0 0 -5px;
+
+  animation: pulse 2500ms cubic-bezier(.09,.67,.3,1);
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  0%{
+    transform: scale(1);
+    opacity: 1;
+  }
+  30%{
+    transform: scale(1.4);
+    opacity: 0;
+  }
+  100%{
+    transform: scale(1.2);
+    opacity: 0;
+  }
 }
 
 .graph .score {
