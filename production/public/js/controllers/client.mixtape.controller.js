@@ -8,6 +8,7 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
   self.showDetail = false;
   self.showArtist = false;
   self.showModal = showModal;
+  self.resetModal = resetModal;
   self.currArtist = null;
   self.currSort = 'popularity';
   self.currColor = '';
@@ -66,6 +67,8 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
       angular.element('.sort').addClass('hidden');
       self.sortOpen = false;
 
+      angular.element('.screen').addClass('active');
+
     } else {
       angular.element('.artist-filter').removeClass('visible');
       angular.element('.artist-filter').addClass('hidden');
@@ -96,6 +99,8 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
       angular.element('.sort').addClass('hidden');
       self.sortOpen = false;
 
+      angular.element('.screen').addClass('active');
+
     } else {
       angular.element('.state-filter').removeClass('visible');
       angular.element('.state-filter').addClass('hidden');
@@ -125,6 +130,9 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
       angular.element('.sort-button').removeClass('active');
       angular.element('.sort').addClass('hidden');
       self.sortOpen = false;
+
+      angular.element('.screen').addClass('active');
+
     } else {
       angular.element('.color-filter').removeClass('visible');
       angular.element('.color-filter').addClass('hidden');
@@ -155,13 +163,36 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
       angular.element('.color-filter').removeClass('visible');
       angular.element('.color-filter').addClass('hidden');
       self.colorFilterOpen = false;
+
+      angular.element('.screen').addClass('active');
+
     } else {
       angular.element('.sort').removeClass('visible');
       angular.element('.sort-button').removeClass('active');
       angular.element('.sort').addClass('hidden');
       self.sortOpen = false;
     }
+  };
 
+  self.filterReset = function() {
+    angular.element('.sort').removeClass('visible');
+    angular.element('.sort-button').removeClass('active');
+    angular.element('.sort').addClass('hidden');
+    self.sortOpen = false;
+
+    angular.element('.state-filter').removeClass('visible');
+    angular.element('.state-filter').addClass('hidden');
+    self.stateFilterOpen = false;
+
+    angular.element('.artist-filter').removeClass('visible');
+    angular.element('.artist-filter').addClass('hidden');
+    self.artistFilterOpen = false;
+
+    angular.element('.color-filter').removeClass('visible');
+    angular.element('.color-filter').addClass('hidden');
+    self.colorFilterOpen = false;
+
+    angular.element('.screen').removeClass('active');
   };
 
 
@@ -441,11 +472,27 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
     allByArtist: []
   };
 
-  // normalizes complexity score for graph
-  self.normalized = false;
+
+  function resetModal() {
+
+    angular.element('.details')[0].scrollTop = 0;
+
+    angular.element('.details-top').removeClass('fadein0');
+    angular.element('.color-bar').removeClass('fadein150');
+    angular.element('.similar').removeClass('fadein300');
+    angular.element('.complexity-graph').removeClass('fadein450');
+
+    angular.element('.details-top').css('opacity', 0);
+    angular.element('.color-bar').css('opacity', 0);
+    angular.element('.similar').css('opacity', 0);
+    angular.element('.complexity-graph').css('opacity', 0);
+
+  }
+
 
   // instantiates all the data for the modal
   function showModal(index) {
+
 
     angular.element('.details')[0].scrollTop = 0;
 
@@ -481,7 +528,13 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
 
     findSimilarByComplex(self.all[index]);
     findAllByArtist(self.all[index]);
+
+
   }
+
+
+
+
 
   // find all the mixtapes by a single artist for the graph
   function findAllByArtist(currentCover) {
@@ -513,6 +566,10 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
 
     self.current.allByArtist = allByArtist;
   }
+
+
+
+
 
   // find all mixtapes that have a similar complexity score
   function findSimilarByComplex(currentCover) {
@@ -582,6 +639,9 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
     self.showDetail = true;
 
   }
+
+
+
 
 
   // http://stackoverflow.com/questions/19948761/count-similarities-between-two-arrays-with-javascript

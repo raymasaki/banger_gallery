@@ -4,8 +4,10 @@
 
   <div class="details" ng-show="mixtapes.showDetail" onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';">
 
+    <!-- MIXTAPE META DATA -->
+
     <div class="details-top">
-      <a ng-click="mixtapes.showDetail = false" class="close">
+      <a ng-click="mixtapes.resetModal(); mixtapes.showDetail = false" class="close">
         <svg fill="#B0BEC5" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
           <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
           <path d="M0 0h24v24H0z" fill="none"/>
@@ -23,16 +25,20 @@
       <h3 class="score-number">{{mixtapes.current.score}} <span class="outof">/ 100</span></h3>
     </div>
 
+    <!-- COLOR SPREAD -->
+
     <div class="color-bar">
       <h3 class="small">{{mixtapes.current.title}}'s Color Spread</h3>
       <div class="color-spread" ng-repeat="color in mixtapes.current.colors" style="background: {{color.hexVal}}; width: {{color.percentage * 100}}%"></div>
     </div>
 
 
+    <!-- VISUALLY SIMILAR COVERS -->
+
     <div class="similar">
       <h3 class="small">Visually Similar Covers</h3>
       <div class="similar-cover" ng-repeat="similar in mixtapes.current.similar">
-        <img ng-src="{{similar.thumb_image}}" ng-click="mixtapes.showModal(similar._id)">
+        <img ng-src="{{similar.thumb_image}}" ng-click="mixtapes.resetModal(); mixtapes.showModal(similar._id)">
 
         <div class="color-bar-similar">
           <div class="color-spread-similar" ng-repeat="color in similar.colorAll" style="background: {{color.hex}}; width: {{color.percent * 100}}%;"></div>
@@ -41,13 +47,15 @@
       </div>
     </div>
 
+    <!-- COMPLEXITY GRAPH -->
+
     <div class="complexity-graph">
       <h3 class="small">{{mixtapes.current.artist}}'s Cover Complexity Over Time</h3>
 
       <div class="graph">
         <div class="complexity-score" ng-repeat="mixtape in mixtapes.current.allByArtist" style="width: {{100 / mixtapes.current.allByArtist.length}}%; float: left; position: relative; height: 100%;">
 
-          <div class="dot" ng-class="{currentdot: mixtape._id === mixtapes.current.id}" style="position: absolute; bottom: {{mixtape.score}}%" ng-click="mixtapes.showModal(mixtape._id)">
+          <div class="dot" ng-class="{currentdot: mixtape._id === mixtapes.current.id}" style="position: absolute; bottom: {{mixtape.score}}%" ng-click="mixtapes.resetModal(); mixtapes.showModal(mixtape._id)">
             <span class="ring"></span>
             <span class="score small">{{mixtape.score}}</span>
           </div>
@@ -60,7 +68,7 @@
 
   </div>
 
-  <div class="modal-bg" ng-click="mixtapes.showDetail = false"></div>
+  <div class="modal-bg" ng-click="mixtapes.resetModal(); mixtapes.showDetail = false"></div>
 </div>
 
 
@@ -84,6 +92,8 @@
       <span class="filter-color">{{colorFilter.color}}</span>
     </li>
   </ul>
+
+  <!-- SORT BUTTON -->
 
   <div ng-click="mixtapes.sortList()" class="sort-button">
     <div class="sort-icon visible">
@@ -120,6 +130,8 @@
         ng-enter="artistFilter = {artist: mixtapes.currArtist}; mixtapes.showArtist = true; mixtapes.artistFilter()">
     </div>
   </div>
+
+  <div class="screen" ng-click="mixtapes.filterReset()"></div>
 
   <!-- State Filter -->
 
@@ -208,7 +220,7 @@
   <ul class="grid" masonry="true">
 
     <li class="grid-item" ng-repeat="mixtape in mixtapes.all | filter: artistFilter | filter: colorFilter | filter: stateFilter | orderBy: order" style="background: {{mixtape.analysis.clusters[1].hex[0]}};">
-      <img img-fade-in-onload="{{mixtape.thumb_image}}" alt="{{mixtape.title}}" ng-click="mixtapes.showModal(mixtape._id)" src="">
+      <img img-fade-in-onload="{{mixtape.thumb_image}}" alt="{{mixtape.title}}" ng-click="mixtapes.resetModal(); mixtapes.showModal(mixtape._id)" src="">
     </li>
 
   </ul>
