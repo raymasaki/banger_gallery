@@ -37,7 +37,7 @@ a {
   pointer-events: none;
 
   animation: fadeOut 1000ms cubic-bezier(0.31, 0.32, 0.22,1);
-  animation-delay: 1500ms;
+  animation-delay: 1800ms;
   animation-fill-mode: forwards;
 }
 
@@ -51,15 +51,6 @@ a {
   animation: fadeOut 200ms cubic-bezier(0.31, 0.32, 0.22,1);
   animation-delay: 1400ms;
   animation-fill-mode: forwards;
-}
-
-@keyframes fadeOut {
-  0%{
-    opacity: 1;
-  }
-  100%{
-    opacity: 0;
-  }
 }
 
 .container {
@@ -94,15 +85,6 @@ ul.filter-type {
   animation: slideTop 600ms cubic-bezier(.07,.56,.4,1);
   animation-delay: 1600ms;
   animation-fill-mode: forwards;
-}
-
-@keyframes slideTop {
-  from {
-    transform: translateY(-160px);
-  }
-  to {
-    transform: translateY(0);
-  }
 }
 
 ul.filter-type > li {
@@ -171,15 +153,6 @@ ul.filter-type {
 
 .sort-button:hover {
   background: #F8F8F8;
-}
-
-@keyframes slideRight {
-  from {
-    transform: translateX(90px);
-  }
-  to {
-    transform: translateX(0);
-  }
 }
 
 .sort-button.active {
@@ -286,6 +259,29 @@ ul.state-filter {
   box-sizing: border-box;
 }
 
+.angucomplete-dropdown {
+  width: 498px;
+  margin-top: 0;
+  border-radius: 0;
+  border-top: 1px solid #CECECE;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.angucomplete-row {
+  margin: 0;
+  padding: 6px 0 10px;
+  height: 32px;
+}
+
+.angucomplete-title {
+  padding-left: 16px;
+}
+
+.angucomplete-selected-row {
+  background: #CECECE;
+}
+
 textarea, input {
   outline: none;
 }
@@ -296,6 +292,12 @@ textarea, input {
   line-height: 48px;
   z-index: 100;
   font-size: 14px;
+}
+
+.clear-button {
+  margin-top: 4px;
+  float: right;
+  padding-left: 6px;
 }
 
 span.filter-state, span.filter-color {
@@ -309,12 +311,22 @@ span.filter-state, span.filter-color {
   margin-top: -2px;
 }
 
-span.filter-artist, .logo-small {
+.logo-small {
   float: left;
   margin-top: -48px;
   padding-left: 8px;
   letter-spacing: 4px;
+  font-size: .8em;
 }
+
+span.filter-artist {
+  float: left;
+  margin-top: -48px;
+  padding-left: 8px;
+  letter-spacing: 0;
+  font-size: .8em;
+}
+
 
 
 /***************** GRID *****************/
@@ -333,15 +345,6 @@ span.filter-artist, .logo-small {
   animation: color 20000ms linear;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
-}
-
-@keyframes color {
-  0% {
-    left: 0;
-  }
-  100% {
-    left: -440%;
-  }
 }
 
 .grid {
@@ -430,17 +433,6 @@ span.filter-artist, .logo-small {
   animation: modalLoad 200ms cubic-bezier( 0.07, 0.56, 0.4,1);
   animation-fill-mode: forwards;
   animation-delay: 100ms;
-}
-
-@keyframes modalLoad {
-  0%{
-    opacity: 0;
-    transform: scale(.96);
-  }
-  100%{
-    opacity: 1;
-    transform: scale(1);
-  }
 }
 
 .modal-bg {
@@ -562,17 +554,6 @@ span.filter-artist, .logo-small {
   transform: translateY(70px);
 }
 
-@keyframes fadeInUp {
-  0%{
-    opacity: 0;
-    transform: translateY(70px);
-  }
-  100%{
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
-
 
 /* Complexity Graph */
 
@@ -633,21 +614,6 @@ span.filter-artist, .logo-small {
   animation-iteration-count: infinite;
 }
 
-@keyframes pulse {
-  0%{
-    transform: scale(1);
-    opacity: 1;
-  }
-  30%{
-    transform: scale(1.4);
-    opacity: 0;
-  }
-  100%{
-    transform: scale(1.2);
-    opacity: 0;
-  }
-}
-
 .graph .score {
   opacity: 0;
   position: absolute;
@@ -691,6 +657,84 @@ span.filter-artist, .logo-small {
 }
 @media (min-width: 992px) and (max-width: 1199px) { /* between 992 and 1199 */
 
+}
+
+
+
+/***************** KEYFRAME ANIMATIONS *****************/
+
+
+@keyframes fadeOut {
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+@keyframes slideTop {
+  from {
+    transform: translateY(-160px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(90px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes color {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -440%;
+  }
+}
+
+@keyframes modalLoad {
+  0%{
+    opacity: 0;
+    transform: scale(.96);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  0%{
+    opacity: 0;
+    transform: translateY(70px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulse {
+  0%{
+    transform: scale(1);
+    opacity: 1;
+  }
+  30%{
+    transform: scale(1.4);
+    opacity: 0;
+  }
+  100%{
+    transform: scale(1.2);
+    opacity: 0;
+  }
 }
 
 

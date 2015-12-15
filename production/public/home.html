@@ -5,7 +5,12 @@
   <div class="details" ng-show="mixtapes.showDetail" onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';">
 
     <div class="details-top">
-      <a ng-click="mixtapes.showDetail = false" class="close">X</a>
+      <a ng-click="mixtapes.showDetail = false" class="close">
+        <svg fill="#B0BEC5" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+          <path d="M0 0h24v24H0z" fill="none"/>
+        </svg>
+      </a>
 
       <img ng-src="{{mixtapes.current.thumb_image}}" alt="{{mixtapes.current.title}}">
       <h2><a ng-click="artistFilter = {artist: mixtapes.current.artist}; mixtapes.showDetail = false; mixtapes.currArtist = mixtapes.current.artist;">{{mixtapes.current.artist}}</a></h2>
@@ -183,7 +188,12 @@
 
 <span class="filter-artist" ng-show="mixtapes.currArtist">
   {{mixtapes.currArtist}}
-  <a class="clear-artist" ng-click="artistFilter = {artist: ''}; mixtapes.currArtist = ''">X</a>
+  <a class="clear-button" ng-click="artistFilter = {artist: ''}; mixtapes.currArtist = ''">
+    <svg fill="#B0BEC5" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+      <path d="M0 0h24v24H0z" fill="none"/>
+    </svg>
+  </a>
 </span>
 
 <a class="about-link small" ui-sref="about">What is this?</a>
