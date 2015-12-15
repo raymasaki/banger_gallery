@@ -13,12 +13,14 @@
       </a>
 
       <img ng-src="{{mixtapes.current.thumb_image}}" alt="{{mixtapes.current.title}}">
-      <h2><a ng-click="artistFilter = {artist: mixtapes.current.artist}; mixtapes.showDetail = false; mixtapes.currArtist = mixtapes.current.artist;">{{mixtapes.current.artist}}</a></h2>
-      <h2><a ng-href="{{mixtapes.current.link}}" target="_blank">{{mixtapes.current.title}}</a></h2>
-      <p class="small">Downloads: {{mixtapes.current.downloads | number : fractionSize}}</p>
-      <p class="small">Location: {{mixtapes.current.city}}, {{mixtapes.current.state}}</p>
+      <h2 class="cover-artist"><a ng-click="artistFilter = {artist: mixtapes.current.artist}; mixtapes.showDetail = false; mixtapes.currArtist = mixtapes.current.artist;">{{mixtapes.current.artist}}</a></h2>
+      <h2 class="cover-title"><a ng-href="{{mixtapes.current.link}}" target="_blank">{{mixtapes.current.title}}</a></h2>
       <p class="small">Release Date: {{mixtapes.current.month}}-{{mixtapes.current.day}}-{{mixtapes.current.year}}</p>
-      <h3>Score: {{mixtapes.current.score}} / 100</h3>
+      <p class="small">Location: {{mixtapes.current.city}}, {{mixtapes.current.state}}</p>
+      <p class="small downloads">Downloads: {{mixtapes.current.downloads | number : fractionSize}}</p>
+
+      <p class="small complexity-label">Cover Complexity:</p>
+      <h3 class="score-number">{{mixtapes.current.score}} <span class="outof">/ 100</span></h3>
     </div>
 
     <div class="color-bar">

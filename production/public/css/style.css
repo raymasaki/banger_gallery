@@ -15,7 +15,7 @@
 body {
   font-family: 'Practice-Regular', helvetica, sans-serif;
   background: #F7F9F8;
-  font-size: 24px;
+  font-size: 26px;
   line-height: 36px;
 }
 
@@ -298,6 +298,15 @@ textarea, input {
   margin-top: 4px;
   float: right;
   padding-left: 6px;
+  opacity: 1;
+
+  transition: opacity 200ms ease-out;
+}
+
+.clear-button:hover {
+  opacity: .6;
+
+  transition: opacity 200ms ease-out;
 }
 
 span.filter-state, span.filter-color {
@@ -457,6 +466,15 @@ span.filter-artist {
   position: absolute;
   top: 0;
   right: 0;
+  opacity: 1;
+
+  transition: opacity 200ms ease-out;
+}
+
+.details > .details-top > a.close:hover {
+  opacity: .6;
+
+  transition: opacity 200ms ease-out;
 }
 
 /* Top Section */
@@ -469,6 +487,14 @@ span.filter-artist {
 
 .details-top {
   opacity: 0;
+}
+
+.cover-title {
+  padding-bottom: 24px;
+}
+
+.cover-title a {
+  color: black;
 }
 
 /* Color Bar */
@@ -612,6 +638,36 @@ span.filter-artist {
   animation: pulse 2500ms cubic-bezier(.09,.67,.3,1);
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
+}
+
+.cover-artist a {
+  color: #B0BEC5;
+  cursor: pointer;
+  opacity: 1;
+
+  transition: opacity 200ms ease-out;
+}
+
+.cover-artist a:hover {
+  opacity: .6;
+
+  transition: opacity 200ms ease-out;
+}
+
+p.downloads {
+  padding-bottom: 24px;
+}
+
+.complexity-label {
+  padding-bottom: 6px;
+}
+
+.score-number {
+  font-size: 36px;
+}
+
+.outof {
+  color: #B0BEC5;
 }
 
 .graph .score {
