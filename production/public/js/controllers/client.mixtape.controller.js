@@ -50,6 +50,9 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
   self.artistFilter = function() {
 
     if (self.artistFilterOpen === false){
+
+      angular.element('.screen').addClass('active');
+
       angular.element('.artist-filter').removeClass('hidden');
       angular.element('.artist-filter').addClass('visible');
       self.artistFilterOpen = true;
@@ -67,8 +70,6 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
       angular.element('.sort').addClass('hidden');
       self.sortOpen = false;
 
-      angular.element('.screen').addClass('active');
-
     } else {
       angular.element('.artist-filter').removeClass('visible');
       angular.element('.artist-filter').addClass('hidden');
@@ -82,6 +83,9 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
   self.stateFilter = function() {
 
     if (self.stateFilterOpen === false){
+
+      angular.element('.screen').addClass('active');
+
       angular.element('.state-filter').removeClass('hidden');
       angular.element('.state-filter').addClass('visible');
       self.stateFilterOpen = true;
@@ -99,8 +103,6 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
       angular.element('.sort').addClass('hidden');
       self.sortOpen = false;
 
-      angular.element('.screen').addClass('active');
-
     } else {
       angular.element('.state-filter').removeClass('visible');
       angular.element('.state-filter').addClass('hidden');
@@ -114,6 +116,9 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
   self.colorFilter = function() {
 
     if (self.colorFilterOpen === false){
+
+      angular.element('.screen').addClass('active');
+
       angular.element('.color-filter').removeClass('hidden');
       angular.element('.color-filter').addClass('visible');
       self.colorFilterOpen = true;
@@ -131,8 +136,6 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
       angular.element('.sort').addClass('hidden');
       self.sortOpen = false;
 
-      angular.element('.screen').addClass('active');
-
     } else {
       angular.element('.color-filter').removeClass('visible');
       angular.element('.color-filter').addClass('hidden');
@@ -146,6 +149,9 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
   self.sortList = function() {
 
     if (self.sortOpen === false){
+
+      angular.element('.screen').addClass('active');
+
       angular.element('.sort').removeClass('hidden');
       angular.element('.sort').addClass('visible');
       angular.element('.sort-button').addClass('active');
@@ -164,7 +170,6 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
       angular.element('.color-filter').addClass('hidden');
       self.colorFilterOpen = false;
 
-      angular.element('.screen').addClass('active');
 
     } else {
       angular.element('.sort').removeClass('visible');
@@ -177,6 +182,9 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
 
   // hides filters and sort if they're open and the screen is clicked
   self.filterReset = function() {
+    
+    angular.element('.screen').removeClass('active');
+
     angular.element('.sort').removeClass('visible');
     angular.element('.sort-button').removeClass('active');
     angular.element('.sort').addClass('hidden');
@@ -194,7 +202,6 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
     angular.element('.color-filter').addClass('hidden');
     self.colorFilterOpen = false;
 
-    angular.element('.screen').removeClass('active');
   };
 
 

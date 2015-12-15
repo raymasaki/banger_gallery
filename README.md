@@ -100,5 +100,6 @@
 ### Known Bugs / Unresolved Problems
 - Bug: If you search for artists like YG or Lil B results with those characters will show e.g. T'yg'a or 'Lil B'oosie
 - Bug: Artist search only works on keypress 'enter', it should work on click as well
+- Bug: After closing the modal, use can't scroll until you move the mouse
 - Improvement: Hide the scrollbars for overflow elements
 - Improvement: When a detail modal is open, the URL route should update
