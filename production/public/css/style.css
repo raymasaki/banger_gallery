@@ -21,6 +21,7 @@ body {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 .grid-cover {
@@ -90,8 +91,8 @@ a {
 ul.filter-type {
   display: flex;
   transform: translateY(-160px);
-  animation: slideTop 1000ms cubic-bezier(.07,.56,.4,1);
-  animation-delay: 1000ms;
+  animation: slideTop 600ms cubic-bezier(.07,.56,.4,1);
+  animation-delay: 1600ms;
   animation-fill-mode: forwards;
 }
 
@@ -159,12 +160,17 @@ ul.filter-type {
   right: 24px;
   bottom: 24px;
   z-index: 300;
-  transition: 150ms all cubic-bezier(.08,.69,.38,1);
+  transition: 150ms all cubic-bezier(.07,.56,.4,1);
   transform: translateX(90px);
+  cursor: pointer;
 
-  animation: slideRight 600ms cubic-bezier(.07,.56,.4,1);
-  animation-delay: 1500ms;
+  animation: slideRight 400ms cubic-bezier(.07,.56,.4,1);
+  animation-delay: 1800ms;
   animation-fill-mode: forwards;
+}
+
+.sort-button:hover {
+  background: #F8F8F8;
 }
 
 @keyframes slideRight {
@@ -184,7 +190,8 @@ ul.filter-type {
   background: #FFFFFF;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.40);
   border-radius: 0;
-  transition: 200ms all cubic-bezier(.39,.09,.17,1);
+  transition: 150ms all cubic-bezier(.39,.09,.17,1);
+  cursor: default;
 }
 
 .sort-button.active .sort-icon {
@@ -212,7 +219,7 @@ ul.color-filter, ul.state-filter {
   left: 50%;
   z-index: 100;
 
-  transition: 200ms all cubic-bezier(.39,.09,.17,1);
+  transition: 150ms all cubic-bezier(.39,.09,.17,1);
 }
 
 ul.color-filter.hidden, ul.state-filter.hidden {
@@ -258,7 +265,7 @@ ul.state-filter {
   opacity: 1;
   pointer-events: auto;
 
-  transition: 200ms all cubic-bezier(.39,.09,.17,1);
+  transition: 150ms all cubic-bezier(.39,.09,.17,1);
 }
 
 .artist-filter.hidden {
@@ -313,7 +320,7 @@ span.filter-artist, .logo-small {
 
 
 .gradient {
-  background-image: linear-gradient(-90deg, #4927B1 0%, #BB52D1 9%, #58A2F8 18%, #AEC49D 27%, #B6E957 36%, #AEC49D 45%, #58A2F8 54%, #BB52D1 63%, #4927B1 72%, #BB52D1 81%, #58A2F8 90%, #AEC49D 100%);
+  background-image: linear-gradient(-90deg, #4927B1 0%, #AC50BF 9%, #58A2F8 18%, #AEC49D 27%, #B6E957 36%, #AEC49D 45%, #58A2F8 54%, #AC50BF 63%, #4927B1 72%, #AC50BF 81%, #58A2F8 90%, #AEC49D 100%);
 
   width: 600%;
   height: 12px;
@@ -322,7 +329,7 @@ span.filter-artist, .logo-small {
   left: 0;
   z-index: 100;
 
-  animation: color 30000ms linear;
+  animation: color 20000ms linear;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
 }
@@ -403,7 +410,7 @@ span.filter-artist, .logo-small {
 }
 
 .modal > .details {
-  background: white;
+  background: #F8F8F8;
   width: 912px;
   height: 576px;
   overflow-y: scroll;
@@ -419,7 +426,7 @@ span.filter-artist, .logo-small {
   padding: 32px;
   opacity: 0;
 
-  animation: modalLoad 300ms cubic-bezier( 0.07, 0.56, 0.4,1);
+  animation: modalLoad 200ms cubic-bezier( 0.07, 0.56, 0.4,1);
   animation-fill-mode: forwards;
   animation-delay: 100ms;
 }
@@ -427,7 +434,7 @@ span.filter-artist, .logo-small {
 @keyframes modalLoad {
   0%{
     opacity: 0;
-    transform: scale(.94);
+    transform: scale(.96);
   }
   100%{
     opacity: 1;
@@ -446,7 +453,7 @@ span.filter-artist, .logo-small {
   cursor: pointer;
   opacity: 0;
 
-  animation: fadeOut 200ms ease-in;
+  animation: fadeOut 150ms ease-in;
   animation-fill-mode: forwards;
   animation-direction: reverse;
 }
@@ -590,8 +597,15 @@ span.filter-artist, .logo-small {
 
 /***************** TRANSITIONS *****************/
 
+.grid-item {
+    -webkit-transition-duration: 1000ms;
+    -moz-transition-duration: 1000ms;
+    -o-transition-duration: 1000ms;
+    transition-duration: 1000ms;
+    transition-timing-function: cubic-bezier(.54,.42,.3,1);
+}
 
-.masonry .masonry-enter { /* limit animated properties for entering elements */
+.grid .masonry-enter { /* limit animated properties for entering elements */
     -webkit-transition-property: -webkit-transform, opacity;
     transition-property: transform, opacity;
 }
