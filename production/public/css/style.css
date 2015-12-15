@@ -172,7 +172,21 @@ ul.filter-type {
 }
 
 .sort-icon {
-  padding: 10px 0 0 12px;
+  padding: 9px 0 0 12px;
+}
+
+.sort-item {
+  color: #B0BEC5;
+  transition: color 100ms ease-out;
+}
+
+.sort-item:hover {
+  color: #888888;
+  transition: color 100ms ease-out;
+}
+
+.sort-item.currentsort {
+  color: rgba(0, 0, 0, 1);
 }
 
 /* Color/State Filter */

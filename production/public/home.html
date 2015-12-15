@@ -79,7 +79,7 @@
       <span class="filter-state">{{stateFilter.state}}</span>
     </li>
 
-    <li ng-click="mixtapes.colorFilter()">
+    <li class="color-button" ng-click="mixtapes.colorFilter()" style="background: {{colorFilter.color}};">
       <span class="color-label" ng-hide="colorFilter.color">Color</span>
       <span class="filter-color">{{colorFilter.color}}</span>
     </li>
@@ -94,12 +94,12 @@
     </div>
     <ul class="sort hidden">
       <li class="small">Order By:</li>
-      <li><a ng-click="order = '-downloads'">Popularity</a></li>
-      <li><a ng-click="order = 'score'">Complexity</a></li>
-      <li><a ng-click="order = 'title'">Title</a></li>
-      <li><a ng-click="order = 'artist'">Artist</a></li>
-      <li><a ng-click="order = '-color'">Color</a></li>
-      <li><a ng-click="order = '-year'">Year</a></li>
+      <li><a class="sort-item" ng-click="order = '-downloads'; mixtapes.currSort = 'popularity'" ng-class="{currentsort: mixtapes.currSort === 'popularity'}">Popularity</a></li>
+      <li><a class="sort-item" ng-click="order = 'score'; mixtapes.currSort = 'complexity'" ng-class="{currentsort: mixtapes.currSort === 'complexity'}">Complexity</a></li>
+      <li><a class="sort-item" ng-click="order = 'title'; mixtapes.currSort = 'title'" ng-class="{currentsort: mixtapes.currSort === 'title'}">Title</a></li>
+      <li><a class="sort-item" ng-click="order = 'artist'; mixtapes.currSort = 'artist'" ng-class="{currentsort: mixtapes.currSort === 'artist'}">Artist</a></li>
+      <li><a class="sort-item" ng-click="order = '-color'; mixtapes.currSort = 'color'" ng-class="{currentsort: mixtapes.currSort === 'color'}">Color</a></li>
+      <li><a class="sort-item" ng-click="order = '-year'; mixtapes.currSort = 'year'" ng-class="{currentsort: mixtapes.currSort === 'year'}">Year</a></li>
     </ul>
   </div>
 
@@ -154,26 +154,28 @@
   <!-- Color Filter -->
 
   <ul class="color-filter hidden" onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';">
-    <li><a ng-click="colorFilter = {color: ''}; mixtapes.colorFilter()">All</a></li>
-    <li><a ng-click="colorFilter = {color: 'Black'}; mixtapes.colorFilter()">Black</a></li>
-    <li><a ng-click="colorFilter = {color: 'Navy'}; mixtapes.colorFilter()">Navy</a></li>
-    <li><a ng-click="colorFilter = {color: 'Blue'}; mixtapes.colorFilter()">Blue</a></li>
-    <li><a ng-click="colorFilter = {color: 'Forest'}; mixtapes.colorFilter()">Forest</a></li>
-    <li><a ng-click="colorFilter = {color: 'Teal'}; mixtapes.colorFilter()">Teal</a></li>
-    <li><a ng-click="colorFilter = {color: 'Green'}; mixtapes.colorFilter()">Green</a></li>
-    <li><a ng-click="colorFilter = {color: 'Maroon'}; mixtapes.colorFilter()">Maroon</a></li>
-    <li><a ng-click="colorFilter = {color: 'Purple'}; mixtapes.colorFilter()">Purple</a></li>
-    <li><a ng-click="colorFilter = {color: 'Olive'}; mixtapes.colorFilter()">Olive</a></li>
-    <li><a ng-click="colorFilter = {color: 'Gray'}; mixtapes.colorFilter()">Gray</a></li>
-    <li><a ng-click="colorFilter = {color: 'Aquamarine'}; mixtapes.colorFilter()">Aquamarine</a></li>
-    <li><a ng-click="colorFilter = {color: 'Red'}; mixtapes.colorFilter()">Red</a></li>
-    <li><a ng-click="colorFilter = {color: 'Orange'}; mixtapes.colorFilter()">Orange</a></li>
-    <li><a ng-click="colorFilter = {color: 'Gold'}; mixtapes.colorFilter()">Gold</a></li>
-    <li><a ng-click="colorFilter = {color: 'Salmon'}; mixtapes.colorFilter()">Salmon</a></li>
-    <li><a ng-click="colorFilter = {color: 'Pink'}; mixtapes.colorFilter()">Pink</a></li>
-    <li><a ng-click="colorFilter = {color: 'Yellow'}; mixtapes.colorFilter()">Yellow</a></li>
-    <li><a ng-click="colorFilter = {color: 'Beige'}; mixtapes.colorFilter()">Beige</a></li>
-    <li><a ng-click="colorFilter = {color: 'White'}; mixtapes.colorFilter()">White</a></li>
+
+    <li><a ng-click="colorFilter = {color: ''}; mixtapes.colorFilter(); mixtapes.currColor = ''; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === ''}">All</a></li>
+    <li><a ng-click="colorFilter = {color: 'Black'}; mixtapes.colorFilter(); mixtapes.currColor = 'black'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'black'}">Black</a></li>
+    <li><a ng-click="colorFilter = {color: 'Navy'}; mixtapes.colorFilter(); mixtapes.currColor = 'navy'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'navy'}">Navy</a></li>
+    <li><a ng-click="colorFilter = {color: 'Blue'}; mixtapes.colorFilter(); mixtapes.currColor = 'blue'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'blue'}">Blue</a></li>
+    <!-- <li><a ng-click="colorFilter = {color: 'Forest'}; mixtapes.colorFilter(); mixtapes.currColor = 'forest'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'forest'}">Forest</a></li> -->
+    <li><a ng-click="colorFilter = {color: 'Teal'}; mixtapes.colorFilter(); mixtapes.currColor = 'teal'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'teal'}">Teal</a></li>
+    <li><a ng-click="colorFilter = {color: 'Green'}; mixtapes.colorFilter(); mixtapes.currColor = 'green'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'green'}">Green</a></li>
+    <li><a ng-click="colorFilter = {color: 'Maroon'}; mixtapes.colorFilter(); mixtapes.currColor = 'maroon'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'maroon'}">Maroon</a></li>
+    <li><a ng-click="colorFilter = {color: 'Purple'}; mixtapes.colorFilter(); mixtapes.currColor = 'purple'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'purple'}">Purple</a></li>
+    <li><a ng-click="colorFilter = {color: 'Olive'}; mixtapes.colorFilter(); mixtapes.currColor = 'olive'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'olive'}">Olive</a></li>
+    <li><a ng-click="colorFilter = {color: 'Gray'}; mixtapes.colorFilter(); mixtapes.currColor = 'gray'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'gray'}">Gray</a></li>
+    <li><a ng-click="colorFilter = {color: 'Aquamarine'}; mixtapes.colorFilter(); mixtapes.currColor = 'aquamarine'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'aquamarine'}">Aquamarine</a></li>
+    <li><a ng-click="colorFilter = {color: 'Red'}; mixtapes.colorFilter(); mixtapes.currColor = 'red'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'red'}">Red</a></li>
+    <li><a ng-click="colorFilter = {color: 'Orange'}; mixtapes.colorFilter(); mixtapes.currColor = 'orange'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'orange'}">Orange</a></li>
+    <li><a ng-click="colorFilter = {color: 'Gold'}; mixtapes.colorFilter(); mixtapes.currColor = 'gold'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'gold'}">Gold</a></li>
+    <li><a ng-click="colorFilter = {color: 'Salmon'}; mixtapes.colorFilter(); mixtapes.currColor = 'salmon'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'salmon'}">Salmon</a></li>
+    <li><a ng-click="colorFilter = {color: 'Pink'}; mixtapes.colorFilter(); mixtapes.currColor = 'pink'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'pink'}">Pink</a></li>
+    <li><a ng-click="colorFilter = {color: 'Yellow'}; mixtapes.colorFilter(); mixtapes.currColor = 'yellow'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'yellow'}">Yellow</a></li>
+    <li><a ng-click="colorFilter = {color: 'Beige'}; mixtapes.colorFilter(); mixtapes.currColor = 'beige'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'beige'}">Beige</a></li>
+    <li><a ng-click="colorFilter = {color: 'White'}; mixtapes.colorFilter(); mixtapes.currColor = 'white'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'white'}">White</a></li>
+
   </ul>
 
 </div>

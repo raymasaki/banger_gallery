@@ -9,10 +9,33 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
   self.showArtist = false;
   self.showModal = showModal;
   self.currArtist = null;
+  self.currSort = 'popularity';
+  self.currColor = '';
 
   // Makes the searched artist the current artist
   self.selectedArtist = function(selected) {
     self.currArtist = selected.originalObject.name;
+  };
+
+  // If currColor is dark the font color is white, else it's black
+  self.checkColor = function() {
+    console.log(self.currColor);
+    if (self.currColor === 'black' ||
+        self.currColor === 'navy' ||
+        self.currColor === 'blue' ||
+        self.currColor === 'teal' ||
+        self.currColor === 'forest' ||
+        self.currColor === 'green' ||
+        self.currColor === 'maroon' ||
+        self.currColor === 'purple' ||
+        self.currColor === 'olive' ||
+        self.currColor === 'gray' ||
+        self.currColor === 'red' ||
+        self.currColor === 'orange') {
+      angular.element('.filter-color').css('color', '#FFFFFF');
+    } else {
+      angular.element('.filter-color').css('color', '#000000');
+    }
   };
 
 
