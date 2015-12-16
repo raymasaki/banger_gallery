@@ -17,6 +17,7 @@ body {
   background: #F7F9F8;
   font-size: 26px;
   line-height: 36px;
+  font-kerning: normal;
 }
 
 a {
@@ -130,7 +131,7 @@ ul.filter-type {
 }
 
 ul.filter-type > li {
-  width: 33.33%;
+  width: 33.34%;
   display: inline-block;
   text-align: center;
   cursor: pointer;
