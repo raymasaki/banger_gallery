@@ -27,14 +27,18 @@
       <p class="small">Location: {{mixtapes.current.city}}, {{mixtapes.current.state}}</p>
       <p class="small downloads">Downloads: {{mixtapes.current.downloads | number : fractionSize}}</p>
 
-      <p class="small complexity-label">Cover Complexity:</p>
+      <p class="small complexity-label">Cover Complexity:
+        <span class="question-icon small">?
+          <span class="tooltip">Complexity score is based on comparing the balance of colors by percentage and the total number of unique colors.</span>
+        <span>
+      </p>
       <h3 class="score-number">{{mixtapes.current.score}} <span class="outof">/ 100</span></h3>
     </div>
 
     <!-- COLOR SPREAD -->
 
     <div class="color-bar">
-      <h3 class="small">{{mixtapes.current.title}}'s Color Spread</h3>
+      <h3 class="small">This Mixtape's Color Spread</h3>
       <div class="color-spread" ng-repeat="color in mixtapes.current.colors" style="background: {{color.hexVal}}; width: {{color.percentage * 100}}%"></div>
     </div>
 
@@ -42,7 +46,11 @@
     <!-- VISUALLY SIMILAR COVERS -->
 
     <div class="similar">
-      <h3 class="small">Visually Similar Covers</h3>
+      <h3 class="small">Visually Similar Covers
+        <span class="question-icon small">?
+          <span class="tooltip">Similarities are determined by comparing covers with similar complexity scores and finding the most color matches.</span>
+        <span>
+      </h3>
       <div class="similar-cover" ng-repeat="similar in mixtapes.current.similar">
         <img ng-src="{{similar.thumb_image}}" ng-click="mixtapes.resetModal(); mixtapes.showModal(similar._id)">
 
@@ -133,7 +141,7 @@
         minlength="1"
         input-class="form-artist"
         clear-selected="true"
-        ng-enter="artistFilter = {artist: mixtapes.currArtist}; mixtapes.showArtist = true; mixtapes.artistFilter()">
+        ng-enter="artistFilter = {artist: mixtapes.currArtist}; mixtapes.showArtist = true; mixtapes.artistFilter(); mixtapes.filterReset()">
     </div>
   </div>
 
@@ -143,56 +151,56 @@
 
 
   <ul class="state-filter hidden" onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';">
-    <li><a ng-click="stateFilter = {state: ''}; mixtapes.stateFilter()">All</a></li>
-    <li><a ng-click="stateFilter = {state: 'Alabama'}; mixtapes.stateFilter()">Alabama</a></li>
-    <li><a ng-click="stateFilter = {state: 'California'}; mixtapes.stateFilter()">California</a></li>
-    <li><a ng-click="stateFilter = {state: 'Connecticut'}; mixtapes.stateFilter()">Connecticut</a></li>
-    <li><a ng-click="stateFilter = {state: 'DMV'}; mixtapes.stateFilter()">DMV</a></li>
-    <li><a ng-click="stateFilter = {state: 'Florida'}; mixtapes.stateFilter()">Florida</a></li>
-    <li><a ng-click="stateFilter = {state: 'Georgia'}; mixtapes.stateFilter()">Georgia</a></li>
-    <li><a ng-click="stateFilter = {state: 'Illinois'}; mixtapes.stateFilter()">Illinois</a></li>
-    <li><a ng-click="stateFilter = {state: 'Indiana'}; mixtapes.stateFilter()">Indiana</a></li>
-    <li><a ng-click="stateFilter = {state: 'Louisiana'}; mixtapes.stateFilter()">Louisiana</a></li>
-    <li><a ng-click="stateFilter = {state: 'Maryland'}; mixtapes.stateFilter()">Maryland</a></li>
-    <li><a ng-click="stateFilter = {state: 'Massachusetts'}; mixtapes.stateFilter()">Massachusetts</a></li>
-    <li><a ng-click="stateFilter = {state: 'Michigan'}; mixtapes.stateFilter()">Michigan</a></li>
-    <li><a ng-click="stateFilter = {state: 'Mississippi'}; mixtapes.stateFilter()">Mississippi</a></li>
-    <li><a ng-click="stateFilter = {state: 'Missouri'}; mixtapes.stateFilter()">Missouri</a></li>
-    <li><a ng-click="stateFilter = {state: 'New Jersey'}; mixtapes.stateFilter()">New Jersey</a></li>
-    <li><a ng-click="stateFilter = {state: 'New York'}; mixtapes.stateFilter()">New York</a></li>
-    <li><a ng-click="stateFilter = {state: 'North Carolina'}; mixtapes.stateFilter()">North Carolina</a></li>
-    <li><a ng-click="stateFilter = {state: 'Ohio'}; mixtapes.stateFilter()">Ohio</a></li>
-    <li><a ng-click="stateFilter = {state: 'Ontario'}; mixtapes.stateFilter()">Ontario</a></li>
-    <li><a ng-click="stateFilter = {state: 'Pennsylvania'}; mixtapes.stateFilter()">Pennsylvania</a></li>
-    <li><a ng-click="stateFilter = {state: 'Tennessee'}; mixtapes.stateFilter()">Tennessee</a></li>
-    <li><a ng-click="stateFilter = {state: 'Texas'}; mixtapes.stateFilter()">Texas</a></li>
-    <li><a ng-click="stateFilter = {state: 'Virginia'}; mixtapes.stateFilter()">Virginia</a></li>
+    <li><a ng-click="stateFilter = {state: ''}; mixtapes.stateFilter(); mixtapes.filterReset()">All</a></li>
+    <li><a ng-click="stateFilter = {state: 'Alabama'}; mixtapes.stateFilter(); mixtapes.filterReset()">Alabama</a></li>
+    <li><a ng-click="stateFilter = {state: 'California'}; mixtapes.stateFilter(); mixtapes.filterReset()">California</a></li>
+    <li><a ng-click="stateFilter = {state: 'Connecticut'}; mixtapes.stateFilter(); mixtapes.filterReset()">Connecticut</a></li>
+    <li><a ng-click="stateFilter = {state: 'DMV'}; mixtapes.stateFilter(); mixtapes.filterReset()">DMV</a></li>
+    <li><a ng-click="stateFilter = {state: 'Florida'}; mixtapes.stateFilter(); mixtapes.filterReset()">Florida</a></li>
+    <li><a ng-click="stateFilter = {state: 'Georgia'}; mixtapes.stateFilter(); mixtapes.filterReset()">Georgia</a></li>
+    <li><a ng-click="stateFilter = {state: 'Illinois'}; mixtapes.stateFilter(); mixtapes.filterReset()">Illinois</a></li>
+    <li><a ng-click="stateFilter = {state: 'Indiana'}; mixtapes.stateFilter(); mixtapes.filterReset()">Indiana</a></li>
+    <li><a ng-click="stateFilter = {state: 'Louisiana'}; mixtapes.stateFilter(); mixtapes.filterReset()">Louisiana</a></li>
+    <li><a ng-click="stateFilter = {state: 'Maryland'}; mixtapes.stateFilter(); mixtapes.filterReset()">Maryland</a></li>
+    <li><a ng-click="stateFilter = {state: 'Massachusetts'}; mixtapes.stateFilter(); mixtapes.filterReset()">Massachusetts</a></li>
+    <li><a ng-click="stateFilter = {state: 'Michigan'}; mixtapes.stateFilter(); mixtapes.filterReset()">Michigan</a></li>
+    <li><a ng-click="stateFilter = {state: 'Mississippi'}; mixtapes.stateFilter(); mixtapes.filterReset()">Mississippi</a></li>
+    <li><a ng-click="stateFilter = {state: 'Missouri'}; mixtapes.stateFilter(); mixtapes.filterReset()">Missouri</a></li>
+    <li><a ng-click="stateFilter = {state: 'New Jersey'}; mixtapes.stateFilter(); mixtapes.filterReset()">New Jersey</a></li>
+    <li><a ng-click="stateFilter = {state: 'New York'}; mixtapes.stateFilter(); mixtapes.filterReset()">New York</a></li>
+    <li><a ng-click="stateFilter = {state: 'North Carolina'}; mixtapes.stateFilter(); mixtapes.filterReset()">North Carolina</a></li>
+    <li><a ng-click="stateFilter = {state: 'Ohio'}; mixtapes.stateFilter(); mixtapes.filterReset()">Ohio</a></li>
+    <li><a ng-click="stateFilter = {state: 'Ontario'}; mixtapes.stateFilter(); mixtapes.filterReset()">Ontario</a></li>
+    <li><a ng-click="stateFilter = {state: 'Pennsylvania'}; mixtapes.stateFilter(); mixtapes.filterReset()">Pennsylvania</a></li>
+    <li><a ng-click="stateFilter = {state: 'Tennessee'}; mixtapes.stateFilter(); mixtapes.filterReset()">Tennessee</a></li>
+    <li><a ng-click="stateFilter = {state: 'Texas'}; mixtapes.stateFilter(); mixtapes.filterReset()">Texas</a></li>
+    <li><a ng-click="stateFilter = {state: 'Virginia'}; mixtapes.stateFilter(); mixtapes.filterReset()">Virginia</a></li>
   </ul>
 
   <!-- Color Filter -->
 
   <ul class="color-filter hidden" onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';">
 
-    <li><a ng-click="colorFilter = {color: ''}; mixtapes.colorFilter(); mixtapes.currColor = ''; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === ''}">All</a></li>
-    <li><a ng-click="colorFilter = {color: 'Black'}; mixtapes.colorFilter(); mixtapes.currColor = 'black'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'black'}">Black</a></li>
-    <li><a ng-click="colorFilter = {color: 'Navy'}; mixtapes.colorFilter(); mixtapes.currColor = 'navy'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'navy'}">Navy</a></li>
-    <li><a ng-click="colorFilter = {color: 'Blue'}; mixtapes.colorFilter(); mixtapes.currColor = 'blue'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'blue'}">Blue</a></li>
-    <!-- <li><a ng-click="colorFilter = {color: 'Forest'}; mixtapes.colorFilter(); mixtapes.currColor = 'forest'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'forest'}">Forest</a></li> -->
-    <li><a ng-click="colorFilter = {color: 'Teal'}; mixtapes.colorFilter(); mixtapes.currColor = 'teal'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'teal'}">Teal</a></li>
-    <li><a ng-click="colorFilter = {color: 'Green'}; mixtapes.colorFilter(); mixtapes.currColor = 'green'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'green'}">Green</a></li>
-    <li><a ng-click="colorFilter = {color: 'Maroon'}; mixtapes.colorFilter(); mixtapes.currColor = 'maroon'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'maroon'}">Maroon</a></li>
-    <li><a ng-click="colorFilter = {color: 'Purple'}; mixtapes.colorFilter(); mixtapes.currColor = 'purple'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'purple'}">Purple</a></li>
-    <li><a ng-click="colorFilter = {color: 'Olive'}; mixtapes.colorFilter(); mixtapes.currColor = 'olive'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'olive'}">Olive</a></li>
-    <li><a ng-click="colorFilter = {color: 'Gray'}; mixtapes.colorFilter(); mixtapes.currColor = 'gray'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'gray'}">Gray</a></li>
-    <li><a ng-click="colorFilter = {color: 'Aquamarine'}; mixtapes.colorFilter(); mixtapes.currColor = 'aquamarine'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'aquamarine'}">Aquamarine</a></li>
-    <li><a ng-click="colorFilter = {color: 'Red'}; mixtapes.colorFilter(); mixtapes.currColor = 'red'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'red'}">Red</a></li>
-    <li><a ng-click="colorFilter = {color: 'Orange'}; mixtapes.colorFilter(); mixtapes.currColor = 'orange'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'orange'}">Orange</a></li>
-    <li><a ng-click="colorFilter = {color: 'Gold'}; mixtapes.colorFilter(); mixtapes.currColor = 'gold'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'gold'}">Gold</a></li>
-    <li><a ng-click="colorFilter = {color: 'Salmon'}; mixtapes.colorFilter(); mixtapes.currColor = 'salmon'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'salmon'}">Salmon</a></li>
-    <li><a ng-click="colorFilter = {color: 'Pink'}; mixtapes.colorFilter(); mixtapes.currColor = 'pink'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'pink'}">Pink</a></li>
-    <li><a ng-click="colorFilter = {color: 'Yellow'}; mixtapes.colorFilter(); mixtapes.currColor = 'yellow'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'yellow'}">Yellow</a></li>
-    <li><a ng-click="colorFilter = {color: 'Beige'}; mixtapes.colorFilter(); mixtapes.currColor = 'beige'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'beige'}">Beige</a></li>
-    <li><a ng-click="colorFilter = {color: 'White'}; mixtapes.colorFilter(); mixtapes.currColor = 'white'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'white'}">White</a></li>
+    <li><a ng-click="colorFilter = {color: ''}; mixtapes.colorFilter(); mixtapes.currColor = ''; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === ''}; mixtapes.filterReset()">All</a></li>
+    <li><a ng-click="colorFilter = {color: 'Black'}; mixtapes.colorFilter(); mixtapes.currColor = 'black'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'black'}; mixtapes.filterReset()">Black</a></li>
+    <li><a ng-click="colorFilter = {color: 'Navy'}; mixtapes.colorFilter(); mixtapes.currColor = 'navy'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'navy'}; mixtapes.filterReset()">Navy</a></li>
+    <li><a ng-click="colorFilter = {color: 'Blue'}; mixtapes.colorFilter(); mixtapes.currColor = 'blue'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'blue'}; mixtapes.filterReset()">Blue</a></li>
+    <!-- <li><a ng-click="colorFilter = {color: 'Forest'}; mixtapes.colorFilter(); mixtapes.currColor = 'forest'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'forest'}; mixtapes.filterReset()">Forest</a></li> -->
+    <li><a ng-click="colorFilter = {color: 'Teal'}; mixtapes.colorFilter(); mixtapes.currColor = 'teal'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'teal'}; mixtapes.filterReset()">Teal</a></li>
+    <li><a ng-click="colorFilter = {color: 'Green'}; mixtapes.colorFilter(); mixtapes.currColor = 'green'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'green'}; mixtapes.filterReset()">Green</a></li>
+    <li><a ng-click="colorFilter = {color: 'Maroon'}; mixtapes.colorFilter(); mixtapes.currColor = 'maroon'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'maroon'}; mixtapes.filterReset()">Maroon</a></li>
+    <li><a ng-click="colorFilter = {color: 'Purple'}; mixtapes.colorFilter(); mixtapes.currColor = 'purple'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'purple'}; mixtapes.filterReset()">Purple</a></li>
+    <li><a ng-click="colorFilter = {color: 'Olive'}; mixtapes.colorFilter(); mixtapes.currColor = 'olive'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'olive'}; mixtapes.filterReset()">Olive</a></li>
+    <li><a ng-click="colorFilter = {color: 'Gray'}; mixtapes.colorFilter(); mixtapes.currColor = 'gray'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'gray'}; mixtapes.filterReset()">Gray</a></li>
+    <li><a ng-click="colorFilter = {color: 'Aquamarine'}; mixtapes.colorFilter(); mixtapes.currColor = 'aquamarine'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'aquamarine'}; mixtapes.filterReset()">Aquamarine</a></li>
+    <li><a ng-click="colorFilter = {color: 'Red'}; mixtapes.colorFilter(); mixtapes.currColor = 'red'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'red'}; mixtapes.filterReset()">Red</a></li>
+    <li><a ng-click="colorFilter = {color: 'Orange'}; mixtapes.colorFilter(); mixtapes.currColor = 'orange'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'orange'}; mixtapes.filterReset()">Orange</a></li>
+    <li><a ng-click="colorFilter = {color: 'Gold'}; mixtapes.colorFilter(); mixtapes.currColor = 'gold'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'gold'}; mixtapes.filterReset()">Gold</a></li>
+    <li><a ng-click="colorFilter = {color: 'Salmon'}; mixtapes.colorFilter(); mixtapes.currColor = 'salmon'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'salmon'}; mixtapes.filterReset()">Salmon</a></li>
+    <li><a ng-click="colorFilter = {color: 'Pink'}; mixtapes.colorFilter(); mixtapes.currColor = 'pink'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'pink'}; mixtapes.filterReset()">Pink</a></li>
+    <li><a ng-click="colorFilter = {color: 'Yellow'}; mixtapes.colorFilter(); mixtapes.currColor = 'yellow'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'yellow'}; mixtapes.filterReset()">Yellow</a></li>
+    <li><a ng-click="colorFilter = {color: 'Beige'}; mixtapes.colorFilter(); mixtapes.currColor = 'beige'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'beige'}; mixtapes.filterReset()">Beige</a></li>
+    <li><a ng-click="colorFilter = {color: 'White'}; mixtapes.colorFilter(); mixtapes.currColor = 'white'; mixtapes.checkColor()" ng-class="{currentcolor: mixtapes.currColor === 'white'}; mixtapes.filterReset()">White</a></li>
 
   </ul>
 

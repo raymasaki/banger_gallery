@@ -117,6 +117,15 @@ a.about-link {
   color: #0000EE;
 }
 
+.instructions {
+  line-height: 23px;
+  width: 90%;
+}
+
+.mission a {
+  color: #0000EE;
+}
+
 
 /***************** FILTER *****************/
 
@@ -329,6 +338,10 @@ ul.state-filter {
   box-sizing: border-box;
 }
 
+.angucomplete-holder > input::-webkit-input-placeholder {
+  color: #B0BEC5;
+}
+
 .angucomplete-dropdown {
   width: 498px;
   margin-top: 0;
@@ -396,6 +409,7 @@ span.filter-state, span.filter-color {
   padding-left: 8px;
   letter-spacing: 4px;
   font-size: .8em;
+  pointer-events: none;
 }
 
 span.filter-artist {
@@ -405,7 +419,6 @@ span.filter-artist {
   letter-spacing: 0;
   font-size: .8em;
 }
-
 
 
 /***************** GRID *****************/
@@ -421,7 +434,7 @@ span.filter-artist {
   left: 0;
   z-index: 100;
 
-  animation: color 20000ms linear;
+  animation: color 16000ms linear;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
 }
@@ -438,12 +451,12 @@ span.filter-artist {
   padding: 2px;
   margin: 8px;
   transition: box-shadow 300ms ease-out;
-  box-shadow: 0 1px 10px rgba(0,0,0,.3);
+  box-shadow: 0 1px 8px rgba(0,0,0,.3);
 }
 
 .grid-item:hover {
   transition: box-shadow 150ms ease-out;
-  box-shadow: 0 3px 10px rgba(0,0,0,.55);
+  box-shadow: 0 4px 10px rgba(0,0,0,.55);
 }
 
 .grid-item > img {
@@ -545,6 +558,30 @@ span.filter-artist {
   opacity: .6;
 
   transition: opacity 100ms ease-out;
+}
+
+
+/* Tooltip */
+
+.question-icon {
+  cursor: help;
+  color: #B0BEC5;
+}
+
+.question-icon:hover .tooltip {
+  opacity: 1;
+}
+
+.tooltip {
+  opacity: 0;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  width: 320px;
+  box-sizing: border-box;
+  padding: 8px 16px 12px;
+  margin-left: 16px;
+  pointer-events: none;
 }
 
 /* Top Section */
