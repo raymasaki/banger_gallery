@@ -851,7 +851,6 @@ p.downloads {
      line-height: 36px;
      letter-spacing: 8px;
      text-align: center;
-     margin-top: -32px;
    }
 
    .logo-small {
@@ -913,6 +912,16 @@ p.downloads {
 
    ul.color-filter {
       left: 32%;
+   }
+
+   ul.state-filter.hidden  {
+      left: 4%;
+      margin: 0;
+   }
+
+   ul.state-filter {
+      left: 4%;
+      margin: 0;
    }
 
    .mission {
