@@ -18,6 +18,6 @@ require('./app/routes/server.routes.js')(app);
 
 //*********** PORT ***********//
 
-app.listen(80, function () {
-  console.log('Listening on port 80...');
+app.listen(3000, function () {
+  console.log('Listening on port 3000...');
 });

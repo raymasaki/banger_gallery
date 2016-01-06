@@ -829,6 +829,161 @@ p.downloads {
 }
 @media (max-width: 767px) { /* everything below 767 */
 
+   ul.filter-type > li:first-child {
+      display: none;
+   }
+
+   ul.filter-type > li {
+      width: 50%;
+      display: inline-block;
+      text-align: center;
+   }
+
+   .logo {
+      font-size: 28px;
+      line-height: 36px;
+      letter-spacing: 8px;
+      text-align: center;
+   }
+
+   .logo-big {
+     font-size: 28px;
+     line-height: 36px;
+     letter-spacing: 8px;
+     text-align: center;
+     margin-top: -32px;
+   }
+
+   .logo-small {
+      margin-top: -68px;
+      padding: 0;
+      width: 100%;
+      text-align: center;
+   }
+
+   span.filter-artist {
+      float: left;
+      margin-top: -68px;
+      padding: 0;
+      width: 100%;
+      text-align: center;
+   }
+
+   .clear-button {
+       float: none;
+   }
+
+   .clear-button svg {
+      position: absolute;
+      margin-top: 6px;
+      margin-left: -4px;
+   }
+
+   ul.filter-type {
+      top: 24px;
+      width: 92%;
+      margin: 0 4%;
+      left: 0;
+   }
+   .grid {
+      margin: 140px 0 80px 0;
+   }
+   .about-link {
+      width: 100%;
+      padding: 0;
+      text-align: center;
+      margin-top: -30px;
+   }
+
+   .artist-filter {
+      background: #FFFFFF;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.40);
+      position: fixed;
+      top: 80px;
+      left: 0;
+      z-index: 100;
+      width: 92%;
+      height: 48px;
+      margin: 0 4%;
+   }
+
+   ul.color-filter.hidden  {
+      left: 32%;
+   }
+
+   ul.color-filter {
+      left: 32%;
+   }
+
+   .mission {
+      width: 100%;
+      font-size: 22px;
+      line-height: 30px;
+      padding: 16px;
+   }
+
+   .colophon {
+      width: 100%;
+      clear: both;
+      font-size: 22px;
+      line-height: 28px;
+      padding: 16px;
+   }
+
+   h2.cover-artist {
+      clear: both;
+   }
+
+   .details > .details-top > a.close {
+      top: -10px;
+      right: 0px;
+   }
+
+   .details > .details-top > img {
+      max-width: 300px;
+      width: 100%;
+      padding-bottom: 24px;
+      margin-top: 32px;
+   }
+
+   .modal > .details > .similar > .similar-cover {
+      padding-bottom: 24px;
+   }
+
+   .modal > .details > .similar > .similar-cover > img {
+      max-width: 240px;
+   }
+
+   .question-icon {
+      display: none;
+   }
+
+   .small {
+      font-size: 14px;
+      line-height: 16px;
+   }
+
+   .modal .small, .instructions {
+      font-size: 18px;
+      line-height: 23px;
+   }
+
+   .modal > .details {
+      width: 100%;
+      height: 100%;
+      overflow-y: scroll;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-left: 0;
+      margin-top: 0;
+      padding: 24px;
+   }
+
+   .complexity-graph {
+      display: none;
+   }
+
 }
 @media (min-width: 768px) and (max-width: 991px) { /* between 768 and 991 */
 
