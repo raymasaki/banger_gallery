@@ -675,10 +675,14 @@
       };
 
       scope.selectResult = function(result) {
+         console.log(result.title);
+
         // Restore original values
         if (scope.matchClass) {
           result.title = extractTitle(result.originalObject);
           result.description = extractValue(result.originalObject, scope.descriptionField);
+
+         //  artistFilter = {artist: mixtapes.currArtist}; mixtapes.showArtist = true; mixtapes.artistFilter(); mixtapes.filterReset()
         }
 
         if (scope.clearSelected) {

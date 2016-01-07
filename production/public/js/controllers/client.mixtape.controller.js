@@ -20,7 +20,7 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
 
   // If currColor is dark the font color is white, else it's black
   self.checkColor = function() {
-    console.log(self.currColor);
+
     if (self.currColor === 'black' ||
         self.currColor === 'navy' ||
         self.currColor === 'blue' ||
@@ -182,7 +182,7 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
 
   // hides filters and sort if they're open and the screen is clicked
   self.filterReset = function() {
-    
+
     angular.element('.screen').removeClass('active');
 
     angular.element('.sort').removeClass('visible');
@@ -262,7 +262,6 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
     {name: 'Ab-Soul'},
     {name: 'Ace Hood'},
     {name: 'Action Bronson'},
-    {name: 'Action Bronson'},
     {name: 'The Alchemist'},
     {name: 'Akon'},
     {name: 'A$AP Ferg'},
@@ -314,7 +313,6 @@ function MixtapeCtrl($log, $http, $filter, $timeout) {
     {name: 'Fredo Santana'},
     {name: 'French Montana'},
     {name: 'Coke Boys'},
-    {name: 'Fetty Wap'},
     {name: 'Future'},
     {name: 'Game'},
     {name: 'Gucci Mane'},
