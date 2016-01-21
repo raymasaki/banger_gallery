@@ -157,7 +157,7 @@ ul.filter-type {
   background: #FFFFFF;
   width: 354px;
   height: 32px;
-  box-shadow: 0 8px 16px rgba(0,0,0,.4);
+  box-shadow: rgba(0,0,0,0.15) 0px 10px 30px;
   position: fixed;
   z-index: 200;
   top: 32px;
@@ -204,7 +204,7 @@ ul.filter-type {
   height: 48px;
   border-radius: 50%;
   background: #FFFFFF;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.40);
+  box-shadow: rgba(0,0,0,0.15) 0px 10px 20px;
   position: fixed;
   right: 24px;
   bottom: 24px;
@@ -228,7 +228,7 @@ ul.filter-type {
   right: 32px;
   bottom: 32px;
   background: #FFFFFF;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.40);
+  box-shadow: rgba(0,0,0,0.15) 0px 10px 20px;
   border-radius: 0;
   transition: 150ms all cubic-bezier(.39,.09,.17,1);
   cursor: default;
@@ -260,7 +260,7 @@ ul.color-filter, ul.state-filter {
   width: 208px;
   height: 260px;
   background: #FFFFFF;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.40);
+  box-shadow: rgba(0,0,0,0.15) 0px 10px 20px;
   overflow-y: scroll;
   opacity: 1;
   padding: 16px;
@@ -277,7 +277,7 @@ ul.color-filter, ul.state-filter {
 ul.color-filter.hidden, ul.state-filter.hidden {
   width: 208px;
   height: 60px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.40);
+  box-shadow: rgba(0,0,0,0.15) 0px 10px 20px;
   opacity: 0;
   pointer-events: none;
 
@@ -303,7 +303,7 @@ ul.state-filter {
 
 .artist-filter {
   background: #FFFFFF;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.40);
+  box-shadow: rgba(0,0,0,0.15) 0px 10px 20px;
 
   position: fixed;
   top: 80px;
